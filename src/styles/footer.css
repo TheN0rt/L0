@@ -1,0 +1,12 @@
+footer{
+   padding: 24px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+footer > span{
+   font-size: 13px;
+   font-weight: 400;
+   text-align: center;
+}

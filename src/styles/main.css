@@ -1,0 +1,17 @@
+@import url('./cart.css');
+@import url('./summary.css');
+@import url('./popup.css');
+
+main{
+   max-width: 1400px;
+   background: rgb(248, 248, 248);
+   color: black;
+   border-radius: 24px;
+   margin: -10px auto;
+   padding: 0 24px 16px 24px;
+}
+
+main .main__container{
+   display: flex;
+   gap: 32px;
+}

@@ -1,0 +1,153 @@
+.popup{
+   display: none;
+}
+
+.popup.active{
+   position: absolute;
+   top: 0;
+   left: 0;
+   min-width: 100%;
+   min-height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background:#05000A4D;
+   z-index: 100;
+   /* overflow-y: hidden; */
+}
+
+.popup.active .popup__body{
+   box-shadow: 0px 4px 10px 0px #00000033;
+   background: white;
+   border-radius: 16px;
+   min-width: 400px;
+   max-width: 500px;
+}
+
+.popup.active .popup__body .popup__title{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 20px;
+   font-weight: 700;
+   padding: 16px 24px 13px 24px;
+}
+
+.popup.active .popup__body .popup__title > img{
+   cursor: pointer;
+   margin-top: 8px;
+}
+
+.popup.active .popup__body .popup__subtitle{
+   padding: 0 22px 123px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+}
+
+.popup.active .popup__body .popup__subtitle form{
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.popup.active .popup__body .popup__subtitle form label{
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   cursor: pointer;
+}
+
+.popup.active .popup__body .popup__subtitle form .popup__card{
+   display: flex;
+   align-items: center;
+   gap: 4px;
+}
+
+.popup.active .popup__body .popup__footer{
+   padding: 16px 24px 24px;
+}
+
+.popup.active .popup__body .popup__footer .choose{
+   box-shadow: 0px 2px 6px 0px #00000014;
+   padding: 16px 48px;
+}
+
+.popup.active .popup__body .popup__subtitle .popup__delivery-selection{
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.popup__delivery-selection .popup__delivery-item{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 2px solid #CB11AB26;
+   border-radius: 20px;
+   background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+   linear-gradient(0deg, rgba(203, 17, 171, 0.15), rgba(203, 17, 171, 0.15));
+   padding: 0 0 2px;
+   cursor: pointer;
+   width: 224px;
+   height: 36px;
+}
+
+.popup__delivery-selection .popup__delivery-item:hover, .popup__delivery-selection .popup__delivery-item.active{
+   border: 2px solid #CB11AB;
+   /* background: #CB11AB; */
+}
+
+.popup__delivery-selection .popup__delivery-item > p{
+   font-size: 13px;
+   font-weight: 700;
+   color: black;
+}
+
+.popup__subtitle .popup__delivery-choose{
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   padding: 0 0 33px;
+}
+
+.popup__subtitle .popup__delivery-choose > h4{
+   font-size: 13px;
+}
+
+.popup.active .popup__body .popup__subtitle.delivery__section{
+   padding: 0 22px;
+}
+
+.popup.active .popup__body .popup__subtitle .popup__delivery-choose form label{
+   display: flex;
+   align-items: flex-start;
+}
+
+.popup.active .popup__body .popup__subtitle .popup__delivery-choose .address__point, .popup.active .popup__body .popup__subtitle .popup__delivery-choose .address__address{
+   display: none;
+}
+
+.popup.active .popup__body .popup__subtitle .popup__delivery-choose .address__point.active, .popup.active .popup__body .popup__subtitle .popup__delivery-choose .address__address.active{
+   display: flex;
+}
+
+.popup__subtitle .popup__delivery-choose form label .custom__radio{
+   margin-top: 6px;
+}
+
+.popup__subtitle .popup__delivery-choose form label img{
+   margin-top: 4px;
+}
+
+/* .popup__subtitle .popup__delivery-choose ul li{
+   display: flex;
+   gap: 8px;
+} */
+
+.popup__subtitle .popup__delivery-choose ul li .popup__address{
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+   padding: 4px 0 8px;
+}
