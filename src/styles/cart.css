@@ -1,14 +1,16 @@
+
 .cart{
    display: flex;
-   flex-direction: column;
-   gap: 40px;
+   gap: 32px;
    flex-grow: 1;
+   /* justify-content: space-between; */
 }
 
 main .main__container .cart .cart__wrapper{
    display: flex;
    flex-direction: column;
-   gap: 27px;
+   gap: 40px;
+   width: 891px;
 }
 
 main .main__container .cart .cart__wrapper .cart__container{
@@ -18,6 +20,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart .cart__wrapper .cart__container h1{
    margin: 30px 0 24px;
+   font-size: 28px;
 }
 
 .cart .cart__wrapper .cart__container .cart-accord{
@@ -38,6 +41,8 @@ main .main__container .cart .cart__wrapper .cart__container{
    align-items: center;
    gap: 11px;
    cursor: pointer;
+   font-weight: 400;
+   line-height: 24px;
 }
 
 .cart-accord__header .header__title{
@@ -66,12 +71,14 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    flex-direction: column;
    margin-top: 7px;
+   gap: 34px;
 }
 
 .cart-block .cart__item{
    display: flex;
    /* align-items: center; */
    justify-content: space-between;
+   /* z-index: 1; */
 }
 
 .cart-block .cart__item .cart__item-left, .cart-block .cart__item .cart__item-right{
@@ -81,6 +88,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart-block .cart__item .cart__item-left{
    gap: 16px;
+   align-items: flex-start;
 }
 
 .cart-block .cart__item .cart__item-left .cart__item-checkbox{
@@ -91,7 +99,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 }
 
 .cart__item .cart__item-right{
-   gap: 32px;
+   gap: 16px;
 }
 
 .cart-block .cart__item .cart__item-info{
@@ -99,10 +107,13 @@ main .main__container .cart .cart__wrapper .cart__container{
    flex-direction: column;
    gap: 8px;
    font-weight: 400;
+   max-width: 275px;
 }
 
 .cart__item-info .info__name{
    font-size: 16px;
+   cursor: pointer;
+   /* white-space: nowrap; */
 }
 
 .cart__item-info .info__color-block{
@@ -115,7 +126,10 @@ main .main__container .cart .cart__wrapper .cart__container{
 .cart__item-info .info__footer{
    font-size: 13px;
    color: gray;
-   opacity: .8;
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+   /* opacity: .8; */
 }
 
 .cart__item-info .info__footer .info__company-name{
@@ -125,7 +139,11 @@ main .main__container .cart .cart__wrapper .cart__container{
 }
 
 /* модалка для информации о компании */
-.info__company-name .info__company-name-info{
+.info__company-name-info{
+   position: relative;
+}
+
+.info__company-name-info > p{
    width: 16px;
    height: 16px;
    border: 1px solid gray;
@@ -134,6 +152,32 @@ main .main__container .cart .cart__wrapper .cart__container{
    justify-content: center;
    border-radius: 50%;
    cursor: pointer;
+}
+
+.info__company-name-info .info__company-name-modal{
+   position: absolute;
+   display: none;
+   min-width: 280px;
+   border-radius: 8px;
+   padding: 6px 16px;
+   background: white;
+   color: black;
+   box-shadow: 0px 0px 1px 0px #0000004D;
+   box-shadow: 0px 2px 10px 0px #00000026;
+   top: 20px;
+   left: 50%;
+   transform: translate(-50%, 0);
+   z-index: 9999;
+}
+
+.info__company-name-info:hover .info__company-name-modal{
+   display: block;
+}
+
+.info__company-name-modal .modal__container{
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
 }
 
 .cart__item-additive-action{
@@ -162,6 +206,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    align-items: center;
    justify-content: center;
    background-color: transparent;
+   cursor: pointer;
 } 
 
 .cart__item-additive-action .cart__item-attention{
@@ -180,15 +225,19 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    flex-direction: column;
    gap: 5px;
+   width: 120px;
 }
 
 .cart__item-price .price__current{
    font-weight: 700;
    font-size: 16px;
+   align-self: flex-end;
+   font-weight: 700;
 }
 
 .price__current .price__current-number{
    font-size: 20px;
+   letter-spacing: -1.5px;
 }
 
 .price__previous{
@@ -199,15 +248,67 @@ main .main__container .cart .cart__wrapper .cart__container{
    align-self: flex-end;
 }
 
-.cart__miss-block .cart__accord-main .cart-block{
+.price__previous .price__previous-number{
+   position: relative;
+   cursor: pointer;
+}
+
+.price__previous .price__previous-number .price__previous-modal{
+   display: none;
+   background: #FFFFFF;
+   box-shadow: 0px 0px 1px 0px #0000004D;
+   box-shadow: 0px 2px 10px 0px #00000026;
+   padding: 11px 16px 13px;
+   position: absolute;
+   border-radius: 8px;
+   min-width: 250px;
+   top: 19px;
+   right: -5px;
+} 
+
+.price__previous-number .price__previous-modal .modal__body{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.price__previous-modal .modal__body p{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 13px;
+   font-weight: 400;
+}
+
+.price__previous-modal .modal__body p:first-child{
+   margin-bottom: 8px;
+}
+
+.price__previous-modal .modal__body p span:last-child{
+   color: black;
+}
+
+.price__previous-number:hover .price__previous-modal{
+   display: block;
+}
+
+.cart__miss-block .cart__accord-main .cart-block .cart__item .cart__item-left{
    filter: grayscale(100%);
    color: gray;
+}
+
+.cart__miss-block .cart__item .cart__item-right{
+   width: 190px;
 }
 
 .cart__delivery-block{
    display: flex;
    flex-direction: column;
    gap: 16px;
+}
+
+.cart__delivery-block h2{
+   font-size: 24px;
 }
 
 .cart-flex{
@@ -259,7 +360,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    font-weight: 600;
 }
 
-.subtitle__left .delivety__date{
+.subtitle__left .delivery__date{
    /* Подогнать */
    margin-bottom: 24px; 
 }
@@ -289,14 +390,19 @@ main .main__container .cart .cart__wrapper .cart__container{
    margin-right: 4px;
 }
 
-.subtitle__right .delivety__products{
+.subtitle__right .delivery__products{
    display: flex;
    align-items: center;
    gap: 8px;
 }
 
-.subtitle__right .delivety__products li{
+.subtitle__right .delivery__products li{
    position: relative;
+}
+
+.subtitle__right .delivery__products li .notification{
+   box-sizing: content-box;
+   right: -8px;
 }
 
 .cart__delivery-pay{
@@ -335,7 +441,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    height: 128px;
    display: flex;
    flex-direction: column;
-   gap: 16px;
+   /* gap: 16px; */
 }
 
 .cart-form form .form__start, .cart-form form .form__end{
@@ -347,8 +453,9 @@ main .main__container .cart .cart__wrapper .cart__container{
    flex-grow: 1;
 }
 
-.cart-form form .form__end .form__input:nth-child(2){
+.cart-form form .form__end .form__input:nth-child(2) label{
    /* margin-top: -21px; */
+   opacity: 1;
 }
 
 .cart-form form .form__input:last-child > p{
@@ -399,5 +506,211 @@ main .main__container .cart .cart__wrapper .cart__container{
    opacity: 1;
 }
 
+@media (max-width: 1200px) {
+   main .main__container .cart .cart__wrapper{
+      max-width: 640px;
+   }
+}
 
+@media (max-width: 920px) {
+   .cart{
+      flex-direction: column;
+   }
+}
+
+@media (max-width:690px) {
+   main .main__container .cart .cart__wrapper{
+      width: auto;
+      /* max-width: ; */
+   }
+
+   .cart .cart__wrapper .cart__container h1{
+      margin: 8px 0 12px;
+      font-size: 20px;
+   }
+
+   .cart__container .cart__item{
+      flex-direction: column;
+      position: relative;
+   }
+
+   .cart__container .cart__item .cart__item-right{
+      flex-direction: column;
+   }
+
+   .cart__container .cart__item .cart__item-info{
+      margin-top: 20px;
+   }
+
+   .cart__container .cart__item .cart__item-checkbox{
+      position: relative;
+   }
+
+   .cart__container .cart__item .cart__item-checkbox input[type="checkbox"]{
+      position: absolute;
+      top: 2px;
+      left: 2px;
+   }
+
+   .cart__container .cart__item .cart__item-right .cart__item-additive-action, .cart__container .cart__item .cart__item-right .cart__item-price{
+      flex-direction: row;
+      align-items: center;
+   }
+
+   .cart__container .cart__item .cart__item-right .cart__item-additive-action{
+      max-width: 296px;
+      justify-content: space-between;
+   }
+
+   .cart__item-price .price__current, .cart__item-price .price__previous .price__previous-number > p{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+   }
+
+   .cart__item-price .price__previous {
+      align-self: center;
+   }
+
+   .cart__item-price{
+      position: absolute;
+      top: -6px;
+      left: 88px;
+      width: 100%;
+   }
+
+   .price__previous .price__previous-number .price__previous-modal{
+      right: 50%;
+      transform: translate(50%, 0);
+   }
+
+   .cart__miss-block .cart-block .cart__item{
+      flex-direction: column;
+      max-width: 300px;
+   }
+
+   .cart__miss-block .cart-block .cart__item .cart__item-right{
+      width: auto;
+      align-self: flex-end;
+      /* max-width: 320px; */
+   }
+
+   .cart__miss-block .cart-block .cart__item .cart__item-right .cart__item-additive-action{
+      align-self: flex-end;
+   }
+
+   .cart-form form{
+      height: auto;
+   }
+
+   .cart-form form .form__start, .cart-form form .form__end{
+      flex-direction: column;
+      gap: 16px;
+   }
+
+}
+
+@media (max-width: 600px) {
+
+   .cart__delivery-container .cart__delivery-subtitle{
+      flex-direction: column;
+      position: relative;
+   }
+
+   .cart__delivery-container .cart__delivery-subtitle .subtitle__left{
+      gap: 36px;
+   }
+
+   .cart__delivery-container .cart__delivery-subtitle .subtitle__right{
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      gap: 40px;
+   }
+
+   .subtitle__left .delivery__date:last-child{
+      margin-top: 20px;
+   }
+
+   .subtitle__right #delivery__point p:last-child{
+      font-size: 13px;
+   }
+
+   .cart__delivey-wrapper .cart__delivery-info{
+      margin-top: 40px;
+   }
+}
+
+@media (max-width: 414px){
+   main .main__container .cart .cart__wrapper .cart__container, main .main__container .cart .cart__wrapper .cart__miss-block{
+      padding: 0 16px;
+   }
+
+   .cart__container .cart__item:not(:first-child){
+      padding-top: 16px;
+      border-top: 1px solid gray;
+   }
+
+   .cart__container .cart__item:not(:first-child) .cart__item-price{
+      top: 10px;
+   }
+
+   .cart__item-info .info__name{
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+   }
+
+   .info__company-name-info .info__company-name-modal{
+      left: 80%;
+      transform: translate(-80%, 0);
+   }
+
+   .price__previous .price__previous-number .price__previous-modal{
+      right: 10%;
+      transform: translate(10%, 0);
+   }
+
+   .cart__delivery-container .cart__delivery-subtitle .subtitle__left{
+      gap: 46px;
+   }
+
+   .cart__delivery-container .cart__delivery-subtitle .subtitle__right{
+      gap: 50px;
+   }
+
+   .subtitle__left .delivery__date:last-child{
+      margin-top: 6px;
+   }
+
+   .cart__delivey-wrapper .cart__delivery-info{
+      padding: 0 16px;
+   }
+
+   .cart__delivey-wrapper .cart__delivery-info div:last-child{
+      font-size: 13px;
+   }
+}
+
+@media (max-width: 362px) {
+   .cart__delivery-block h2{
+      font-size: 20px;
+   }
+
+   .main__title{
+      padding: 0 16px;
+   }
+
+   .pay__card{
+      gap: 4px;
+      font-size: 13px;
+   }
+
+   .cart__delivery-container .cart__delivery-subtitle .subtitle__right{
+      gap: 40px;
+   }
+}
 

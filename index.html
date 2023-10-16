@@ -126,6 +126,7 @@
                <div class="logo">
                   <div class="menu-burger">
                      <img src="./src/images/icons/menu.svg" alt="menu">
+                     <img src="./src/images/icons/menuMobile.svg" alt="menu">
                   </div>
                   <div class="logo__img">
                      <span>
@@ -136,6 +137,7 @@
                      </span>
                      <!-- товары и точка -->
                   </div>
+                  <img src="./src/images/icons/searchWhite.svg" alt="search">
                </div>
 
                <div class="header__input input">
@@ -158,6 +160,7 @@
                      <div class="notification"></div>
                   </div>
                </div>
+
             </div>
          </header>
          <!-- /Header -->
@@ -173,9 +176,18 @@
                            <div class="cart-accord__header header">
                               <div class="header__input">
                                  <label for="cart-checkbox__all">
-                                    <input type="checkbox" name="cart-checkbox__all" id="cart-checkbox__all" class="checkbox">
+                                    <input type="checkbox" name="cart-checkbox__all" id="cart-checkbox__all" class="checkbox" checked>
                                     Выбрать все
                                  </label>
+                                 <p>
+                                    <span>
+                                       266 товаров
+                                    </span>
+                                    ·
+                                    <span>
+                                       2 100 569 сом
+                                    </span>
+                                 </p>
                               </div>
                               <div class="header__arrow icons__item active">
                                  <img src="./src/images/icons/arrow.svg" alt="arrow" class="header__arrow-img">
@@ -313,8 +325,8 @@
                                  <ul class="subtitle__left">
                                     <li>Пункт выдачи</li>
                                     <li>Стоимость доставки</li>
-                                    <li class="delivety__date">5—6 февраля</li>
-                                    <li class="delivety__date">7—8 февраля</li>
+                                    <li class="delivery__date">5—6 февраля</li>
+                                    <!-- <li class="delivery__date">7—8 февраля</li> -->
                                  </ul>
                                  <div class="subtitle__right">
                                     <div id="delivery__point">
@@ -327,8 +339,8 @@
                                     <p>
                                        Бесплатно
                                     </p>
-                                    <ul class="delivety__products">
-                                       <li>
+                                    <ul class="delivery__products">
+                                       <!-- <li>
                                           <img src="./src/images/products/tShirt_0.5x.png" alt="product">
                                        </li>
                                        <li>
@@ -337,14 +349,20 @@
                                        </li>
                                        <li>
                                           <img src="./src/images/products/pencil_0.5x.png" alt="product">
-                                       </li>
+                                       </li> -->
                                     </ul>
+                                    <!-- <ul class="delivery__products">
+                                       <li>
+                                          <img src="./src/images/products/case_0.5x.png" alt="product">
+                                          <div class="notification">16</div>
+                                       </li>
+                                    </ul> -->
                                  </div>
                               </div>
                            </div>
                            <div class="cart__delivery-info">
                               <img src="./src/images/icons/done_green.svg" alt="done">
-                              <p>
+                              <div>
                                  Обратная доставка товаров на склад при отказе —
                                  <div class="free green">
                                     бесплатно
@@ -352,7 +370,7 @@
                                        <p>Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</p>
                                     </div>
                                  </div>
-                              </p>
+                              </div>
                            </div>
                         </div>
                         <div class="cart__delivery-pay cart-flex">
@@ -485,9 +503,7 @@
                               <div class="cart__delivery-info gray-background">
                                  <img src="./src/images/icons/done_green.svg" alt="done">
                                  <div>
-                                    <p>
                                        Обратная доставка товаров на склад при отказе —
-                                    </p>
                                     <!-- <br> -->
                                     <div class="free green">
                                        бесплатно
@@ -502,7 +518,7 @@
                               <div class="cart__delivery-pay cart-flex">
                                  <div class="pay__container cart__delivery-container">
                                     <div class="main__title">
-                                       <h2>Способ оплаты</h2>
+                                       <h2>Оплата картой</h2>
                                        <span id="" class="change icons__item pay__change">
                                           <img src="./src/images/icons/change.svg" alt="change">
                                        </span>
@@ -518,8 +534,10 @@
                                  </div>
                                  <div class="pay__info-block gray-background">
                                     <div class="pay__info-checkbox">
-                                       <input type="checkbox" name="pay__immid" id="">
-                                       <label for="pay__immid">Списать оплату сразу</label>
+                                       <label for="pay__immid">
+                                          <input type="checkbox" name="pay__immid" id="pay__immid">
+                                          Списать оплату сразу
+                                       </label>
                                     </div>
                                     <p class="pay-info gray">
                                        Спишем оплату с карты при получении
@@ -532,7 +550,7 @@
                         <button id="order__btn" class="btn">Заказать</button>
                         <div class="summary__additional-agree">
                            <img src="./src/images/icons/done_black.svg" alt="agree">
-                           <p>Соглашаюсь с правилами пользования торговой площадкой и возврата</p>
+                           <p>Соглашаюсь <a href="">с правилами пользования торговой площадкой</a> и <a href="">возврата</a></p>
                         </div>
                      </div>
                   </div>
@@ -545,6 +563,16 @@
          <footer>
             <span>© 2022  ООО «Товары и точка»</span>
          </footer>
+         <section class="menu-footer">
+            <img src="./src/images/icons/home.svg" alt="home">
+            <img src="./src/images/icons/catalog.svg" alt="catalog">
+            <div>
+               <img src="./src/images/icons/cartMobile.svg" alt="cart">
+               <div class="notification">3</div>
+            </div>
+            <img src="./src/images/icons/favoriteMobile.svg" alt="favorite">
+            <img src="./src/images/icons/profileMobile.svg" alt="profile">
+         </section>
          <!-- /Footer -->
       </div>
    </div>

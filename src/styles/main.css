@@ -13,5 +13,12 @@ main{
 
 main .main__container{
    display: flex;
-   gap: 32px;
+   /* gap: 32px; */
+   flex-grow: 1;
+}
+
+@media (max-width: 414px) {
+   main{
+      padding: 0;
+   }
 }

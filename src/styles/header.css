@@ -1,7 +1,7 @@
 header{
    background: transparent;
    max-width: 1400px;
-   margin: 0 auto;
+   margin: 0 auto 6px;
 }
 
 header .header__container{
@@ -13,6 +13,7 @@ header .header__container{
    justify-content: center;
 }
 
+
 header .header__container .logo{
    display: flex;
    align-items: center;
@@ -23,9 +24,14 @@ header .header__container .logo{
    letter-spacing: 2px;
 }
 
+header .logo > img{
+   display: none;
+}
+
 header .header__container .logo .logo__img{
    display: flex;
    flex-direction: column;
+   cursor: pointer;
 }
 
 header .header__container .logo .menu-burger{
@@ -38,6 +44,11 @@ header .header__container .logo .menu-burger{
    align-items: center;
    justify-content: center;
    padding: 10px 8px;
+   cursor: pointer;
+}
+
+header .header__container .logo .menu-burger img:last-child{
+   display: none;
 }
 
 header .header__container .header__input {
@@ -69,6 +80,7 @@ header .header__container .header__input .input__container .img-search{
    align-items: center;
    justify-content: center;
    opacity: .4;
+   cursor: pointer;
 }
 
 header .header__container .header__input .input__container input::placeholder{
@@ -101,4 +113,56 @@ header .header__container .header__icons .icons__item:first-child{
 
 header .header__container .header__icons .icons__item span{
    align-self: flex-end;
+}
+
+@media (max-width: 690px) {
+   header .header__container{
+      padding: 4px 13px;
+      justify-content: space-between;
+   }
+
+   header .header__container .header__icons{
+      display: none;
+   }
+
+   header .header__container .header__input{
+      display: none;
+   }
+
+   header .header__container .logo{
+      justify-content: space-between;
+      flex-grow: 1;
+   }
+
+   header .header__container .logo .menu-burger{
+      border: none;
+   }
+
+   header .header__container .logo .logo__img{
+      flex-direction: row;
+      gap: 6px;
+   }
+
+   header .header__container .logo .menu-burger img:first-child{
+      display: none;
+   }
+
+   header .header__container .logo .menu-burger img:last-child{
+      display: block;
+   }
+
+   header .logo > img{
+      display: block;
+   }
+}
+
+@media (max-width: 344px) {
+   header .header__container .logo{
+      gap: 0;
+   }
+
+   header .header__container .logo .logo__img{
+      display: block;
+      word-wrap: none;
+   }
 }

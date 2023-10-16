@@ -12,6 +12,8 @@
 a{
    text-decoration: none;
    color: black;
+   border-bottom: 1px solid #0000001A;
+   cursor: pointer;
 }
 
 html, body{
@@ -56,7 +58,7 @@ ul li{
 input[type="checkbox"]{
    width: 22px;
    height: 22px;
-   border: 1px solid #CB11AB;
+   border: 1px solid #00000033;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -64,6 +66,7 @@ input[type="checkbox"]{
    appearance: none;
    -webkit-appearance: none;
    cursor: pointer;
+   background: white;
 }
 
 input[type="checkbox"]::after{
@@ -72,6 +75,7 @@ input[type="checkbox"]::after{
 
 input[type="checkbox"]:checked{
    background-color: #CB11AB;
+   border: 1px solid #CB11AB;
 }
 
 input[type="text"]{
@@ -105,8 +109,12 @@ input[type="text"]{
    cursor: pointer;
 }
 
+.delete img:hover svg{
+   stroke: #F55123;
+}
+
 .btn{
-   padding: 16px 32px;
+   padding: 12px 32px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -192,4 +200,70 @@ input[type="radio"]:checked + .custom__radio{
 
 .free:hover .free-popup{
    display: block;
+}
+
+@media (max-width: 1200px) {
+   .free:last-child .free-popup{
+      left: 70px;
+   }
+}
+
+@media (max-width: 630px){
+   .free:last-child .free-popup{
+      left: -40%;
+      /* transform: translate(-220%, 0); */
+   }
+}
+
+@media (max-width: 572px){
+   .free:first-child .free-popup{
+      left: 220%;
+      /* transform: translate(-220%, 0); */
+   }
+}
+
+@media (max-width: 512px){
+   .free:last-child .free-popup{
+      left: 220%;
+      /* transform: translate(-220%, 0); */
+   }
+
+   .custom__radio{
+      width: auto;
+      height: auto;
+      min-width: 16px;
+      min-height: 16px;
+   }
+}
+
+@media (max-width: 434px) {
+   .free:first-child .free-popup{
+      left: 120%;
+      /* transform: translate(-220%, 0); */
+   }
+}
+
+@media (max-width: 414px) {
+   .free:last-child .free-popup{
+      left: 220%;
+      /* transform: translate(-220%, 0); */
+   }
+}
+
+@media (max-width: 396px) {
+   .free .free-popup{
+      left: 100%;
+      /* transform: translate(-220%, 0); */
+   }
+}
+
+@media (max-width: 348px) {
+   .free:last-child .free-popup{
+      left: 0;
+      /* transform: translate(-220%, 0); */
+   }
+
+   .free:first-child .free-popup{
+      left: 100%;
+   }
 }

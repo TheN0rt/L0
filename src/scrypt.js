@@ -98,7 +98,11 @@ let cart = [
             url: '/src//images/products/tShirt_0.5x.png'
          },
       ], 
-      companyName: 'OOO Вайлдберриз',
+      company:{
+         name: 'OOO "Вайлдберриз"',
+         ogrn: "1067746062449",
+         address: '142181, Московская область, д Коледино, тер. Индустриальный Парк Коледино, д. 6 стр. 1'
+       }, 
       stock: ['Коледино WB']
    },
    {
@@ -118,12 +122,16 @@ let cart = [
             url: '/src//images/products/case_0.5x.png'
          },
       ], 
-      companyName: 'OOO Мегапрофстиль',
+      company:{
+         name: 'OOO "Мегапрофстиль"',
+         ogrn: "5167746237148",
+         address: '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+       }, 
       stock: ['Коледино WB']
    },
    {
       id: 3,
-      name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell ',
+      name: 'Карандаши цветные Faber&#8209;Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber&#8209;Castell ',
       count: 2, 
       price: 475,
       percentOfdiscount: 50,
@@ -137,12 +145,51 @@ let cart = [
             url: '/src/images/products/pencil_0.5x.png'
          },
       ], 
-      companyName: 'OOO Вайлдберриз',
+      company:{
+        name: 'OOO "Вайлдберриз"',
+        ogrn: "1067746062449",
+        address: '142181, Московская область, д Коледино, тер. Индустриальный Парк Коледино, д. 6 стр. 1'
+      }, 
       stock: ['Коледино WB']
    }
 ]
 
-const stocks = []
+const stocks = [
+   {
+      name: "Коледино",
+      storage: [
+         {
+            id: 1, 
+            count: 2,
+         },
+         {
+            id: 2, 
+            count: 184,
+         },
+         {
+            id: 3, 
+            count: 2,
+         }
+      ]
+   }, 
+   {
+      name: "Другой склад", 
+      storage: [
+         {
+            id: 1, 
+            count: 0,
+         },
+         {
+            id: 2, 
+            count: 999,
+         },
+         {
+            id: 3, 
+            count: 0,
+         }
+      ]
+   }
+]
 
 const cartBlock = document.querySelector('.cart__container .cart-block')
 const cartMissBlock = document.querySelector('.cart__miss-block .cart-block')
@@ -155,6 +202,7 @@ const popupDeliveryBtn = document.querySelector('#popup__delivery .btn')
 const popupPay = document.querySelector('#popup__pay')
 const popupPayList = document.querySelector('#popup__pay .popup__subtitle form')
 const popupPayBtn = document.querySelector('#popup__pay .btn')
+const popupClose = document.querySelectorAll('#close__icon')
 const changeDelivery = document.querySelectorAll('.change__delivery')
 const changePay = document.querySelectorAll('.pay__change')
 
@@ -162,13 +210,17 @@ const addToCart = () => {
    for(let obj of cart){
       const fullPrice = Math.floor(obj.price * obj.count)
       const currentPrice = Math.floor(fullPrice - (fullPrice * obj.percentOfdiscount / 100 - fullPrice * user.percentOfdiscount / 100))
+      let countOfItem = stocks.reduce((acc, el) => {
+         acc = acc + el.storage.find((el) => el.id == obj.id).count
+         return acc
+      }, 0)
       const textBlock = document.createElement('div')
       textBlock.classList.add('cart__item')
       textBlock.setAttribute('data-type', obj.id)
       textBlock.innerHTML = `
          <div class="cart__item-left">
             <div class="cart__item-checkbox">
-               <input type="checkbox" name="cart__checkbox-${obj.id}" class="checkbox">
+               <input type="checkbox" name="cart__checkbox-${obj.id}" class="checkbox" checked>
                <div class="cart__item-img">
                   <img src="${obj.images[0].url}" alt="product">
                </div>
@@ -185,12 +237,23 @@ const addToCart = () => {
                   <p class="info__stock">
                      ${obj.stock}
                   </p>
-                  <p class="info__company-name">
-                     ${obj.companyName}
-                     <span class="info__company-name-info">
-                        i
-                     </span>
-                  </p>
+                  <div class="info__company-name">
+                     <p>
+                        ${obj.company.name}
+                     </p>
+                     <div class="info__company-name-info">
+                        <p>
+                           i
+                        </p>
+                        <div class="info__company-name-modal modal">
+                           <div class="modal__container">
+                              <h3>${obj.company.name}</h3>
+                              <p>ОГРН: ${obj.company.ogrn}</p>
+                              <p>${obj.company.address}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
@@ -201,9 +264,10 @@ const addToCart = () => {
                   <span class="counter__count">${obj.count}</span>
                   <span class="counter__plus">+</span>
                </div>
-               <div class="cart__item-attention">
-                  Осталось 2 шт.
-               </div>
+               ${countOfItem < 10 ? 
+                  `<div class="cart__item-attention">
+                     Осталось ${countOfItem} шт.
+                  </div>` :  ""}
                <div class="cart__item-icons icons">
                   <div class="icons__item favorite">
                      <img src="./src/images/icons/favorite.svg" alt="favorite">
@@ -218,18 +282,42 @@ const addToCart = () => {
                   <span class="price__current-number">
                      ${currentPrice.toLocaleString()}
                   </span>
-                  <span>com</span>
+                  <span>сом</span>
                </div>
                <div class="price__previous gray">
-                  <span class="price__previous-number">
-                     ${fullPrice.toLocaleString()}
-                  </span>
-                  <span>com</span>
+                  <div class="price__previous-number">
+                     <p>
+                        <span>
+                           ${fullPrice.toLocaleString()}
+                        </span>
+                        <span>сом</span>
+                     </p>
+
+                     <div class="price__previous-modal modal">
+                        <div class="modal__body">
+                           <p>
+                              <span>Скидка ${obj.percentOfdiscount}%</span>
+                              <span>-${Math.floor(obj.price*obj.percentOfdiscount/100)} сом</span>
+                           </p>
+                           <p>
+                              <span>Скидка покупателя ${user.percentOfdiscount}%</span>
+                              <span>-${Math.floor(obj.price*user.percentOfdiscount/100)} сом</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       `
       cartBlock.appendChild(textBlock)
+
+      document.querySelector('.delivery__products').innerHTML += `
+      <li>
+         <img src="${obj.images[1].url}" alt="product">
+         <div class="notification">${obj.count <= 184 ? obj.count : obj.count - (obj.count - 184)}</div>
+      </li>
+      `
    }
 }
 
@@ -238,7 +326,7 @@ addToCart()
 for(let obj of cart){
    const textBlock = document.createElement('div')
    textBlock.classList.add('cart__item')
-   textBlock.setAttribute('data-type', obj.id)
+   // textBlock.setAttribute('data-type', obj.id)
    textBlock.innerHTML = `
    <div class="cart__item-left">
       <div class="cart__item-img">
@@ -293,13 +381,21 @@ const cartItems = document.querySelectorAll('.cart__item')
 const deleteCartItemBtn = document.querySelectorAll('.cart__item .delete')
 
 const currentPriceBlock = document.querySelectorAll('.price__current-number')
-const previousPriceBlock = document.querySelectorAll('.price__previous-number')
+const previousPriceBlock = document.querySelectorAll('.price__previous-number > p span:first-child')
 const counterMinus = document.querySelectorAll('.counter .counter__minus')
 const counterPlus = document.querySelectorAll('.counter .counter__plus')
 const counter = document.querySelectorAll('.counter .counter__count')
 
 const checkboxAllItem = document.querySelector('#cart-checkbox__all')
 const cartCheckboxes = document.querySelectorAll('.cart-block .cart__item input[type="checkbox"]')
+
+document.querySelector('.cart__container .header__input p').style.display = 'none'
+
+const checkCartIconNotification = () => {
+   if(document.querySelectorAll('.cart__container .cart-block .cart__item').length > 0){
+      document.querySelector('.icons__cart .notification').innerText = document.querySelectorAll('.cart__container .cart-block .cart__item').length
+   }
+}
 
 const setSum = () => {
    let sum = cart.reduce((acc, el, index) => {
@@ -324,9 +420,6 @@ const setSummaryCount = () => {
    }, 0)
    document.querySelector('.summary__info ul:first-child li:first-child span').innerText = count
 }
-
-// Исправить 
-// В итоговом цена другая
 
 const setDiscount = () => {
    const discount = cart.reduce((acc, el, index) => {
@@ -372,19 +465,61 @@ const isAllCheckboxTrue = () => {
    return allCheck
 }
 
-cartCheckboxes.forEach((el) => {
+cartCheckboxes.forEach((el, index) => {
    el.addEventListener('change', () => {
       setSummaryCount()
       setSumWithDiscount()
+      let id = cartItems[index].getAttribute('data-type')
+      const indexOfItem = cart.findIndex((el) => id == el.id)
+      if(el.checked){
+         document.querySelector('.delivery__products').children[indexOfItem].style.display = 'block'
+         if(index == 1){
+            document.querySelectorAll('.delivery__products')[1].style.display = 'flex'
+            document.querySelectorAll('.delivery__date')[1].style.display = 'block'
+         }
+      } else{
+         if(index == 1){
+            document.querySelectorAll('.delivery__products')[1].style.display = 'none'
+            document.querySelectorAll('.delivery__date')[1].style.display = 'none'
+         }
+         document.querySelector('.delivery__products').children[indexOfItem].style.display = 'none'
+      }
       if(isAllCheckboxTrue()){
          checkboxAllItem.checked = true
       } else{
          checkboxAllItem.checked = false
       }
 
-      console.log(isAllCheckboxTrue())
    })
 })
+
+const checkCountOfItem = (id, index) => {
+   const storage = stocks[0].storage.find((el) => el.id == id)
+   let moveCount = 0
+   moveCount = counter[index].innerText - storage.count
+   if(moveCount > 0 && id == cartItems[index].getAttribute('data-type')){
+      if(document.querySelectorAll('.delivery__date').length < 2){
+         document.querySelector('.subtitle .subtitle__left').innerHTML += `
+         <li class="delivery__date">7—8 февраля</li>
+         `
+
+         document.querySelector('.subtitle__right').innerHTML += `
+         <ul class="delivery__products">
+            <li>
+               <img src="./src/images/products/case_0.5x.png" alt="product">
+               <div class="notification">${moveCount}</div>
+            </li>
+         </ul>
+         `
+      }
+      document.querySelector('.subtitle__right .delivery__products:last-child li .notification').innerText = moveCount
+   }
+   if((moveCount === 0 && id == 2) && document.querySelectorAll('.delivery__products').length > 1){
+      document.querySelector('.subtitle__right .delivery__products:last-child').remove()
+      document.querySelector('.subtitle__left .delivery__date:last-child').remove()
+   }
+
+}
 
 counterMinus.forEach((el, index) => {
    el.addEventListener('click', () => {
@@ -402,26 +537,63 @@ counterMinus.forEach((el, index) => {
          setSummaryCount()
          // setDiscount()
          setSumWithDiscount()
+         changeTextOfSummaryBtn()
+         if(cart[indexOfItem].count === 1){
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].style.display = 'none'
+         } else{
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].style.display = 'flex'
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].innerText = cart[indexOfItem].count <= 184 ? cart[indexOfItem].count : cart[indexOfItem].count - (cart[indexOfItem].count - 184)
+         }
       }
+
+      if(cart[indexOfItem].count === 1){
+         el.style.color = '#00000033'
+         counterPlus[index].style.color = 'black'
+      }
+
+      checkCountOfItem(id, index)
    })
 })
+
+counterMinus[0].style.color = '#00000033'
+counterPlus[2].style.color = '#00000033'
 
 counterPlus.forEach((el, index) => {
    el.addEventListener('click', () => {
       let id = cartItems[index].getAttribute('data-type')
       const indexOfItem = cart.findIndex((el) => id == el.id)
+      let count = 0;
 
-      cart[indexOfItem].count = cart[indexOfItem].count + 1
-      const fullPrice = Math.floor(cart[indexOfItem].price * cart[indexOfItem].count)
-      const currentPrice = Math.floor((fullPrice - (fullPrice * cart[indexOfItem].percentOfdiscount / 100 - fullPrice * user.percentOfdiscount / 100)))
-      counter[index].innerText = cart[indexOfItem].count.toLocaleString()
-      currentPriceBlock[index].innerText = currentPrice.toLocaleString()
-      previousPriceBlock[index].innerText = fullPrice.toLocaleString()
-      // setSum()
-      setSummaryCount()
-      // setDiscount()
-      setSumWithDiscount()
+      for(let el of stocks){
+         count += el.storage.find((el) => el.id == id).count
+      }
 
+      if(cart[indexOfItem].count < count){
+         cart[indexOfItem].count = cart[indexOfItem].count + 1
+         const fullPrice = Math.floor(cart[indexOfItem].price * cart[indexOfItem].count)
+         const currentPrice = Math.floor((fullPrice - (fullPrice * cart[indexOfItem].percentOfdiscount / 100 - fullPrice * user.percentOfdiscount / 100)))
+         counter[index].innerText = cart[indexOfItem].count.toLocaleString()
+         currentPriceBlock[index].innerText = currentPrice.toLocaleString()
+         previousPriceBlock[index].innerText = fullPrice.toLocaleString()
+         // setSum()
+         setSummaryCount()
+         // setDiscount()
+         setSumWithDiscount()
+         changeTextOfSummaryBtn()
+         if(cart[indexOfItem].count === 1){
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].style.display = 'none'
+         } else{
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].style.display = 'flex'
+            document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[index].children[1].innerText = cart[indexOfItem].count <= 184 ? cart[indexOfItem].count : cart[indexOfItem].count - (cart[indexOfItem].count - 184)
+         }
+      }
+
+      if(cart[indexOfItem].count === count){
+         el.style.color = '#00000033'
+         counterMinus[index].style.color = 'black'
+      }
+
+      checkCountOfItem(id, index)
    })
 })
 
@@ -429,11 +601,22 @@ accordionsBtns.forEach((btn, index) => {
    btn.addEventListener('click', () => {
       accordions[index].classList.toggle('active')
       btn.classList.toggle('active')
+
+      if(index === 0 && !btn.classList.contains('active')){
+         document.querySelector('.cart__container .header__input label').style.display = 'none'
+         document.querySelector('.cart__container .header__input p').style.display = 'block'
+         document.querySelector('.cart__container .header__input p span:first-child').innerText = `${document.querySelector('.summary__info ul:first-child li:first-child span').innerText} товаров`
+         document.querySelector('.cart__container .header__input p span:last-child').innerText = `${document.querySelector('#total__price').innerText} сом`
+      } else if(index === 0 && btn.classList.contains('active')){
+         document.querySelector('.cart__container .header__input label').style.display = 'flex'
+         document.querySelector('.cart__container .header__input p').style.display = 'none'
+      }
    })
 })
 
 const openPopup = (popup) => {
    popup.classList.add('active')
+   document.querySelector('html').style.overflowY = 'hidden'
 }
 
 changeDelivery.forEach((el) => {
@@ -448,7 +631,18 @@ changePay.forEach((el) => {
    })
 })
 
-let currentCard;
+popupPay.addEventListener('click', (e) => {
+   e.target.classList.remove('active')
+   document.querySelector('html').style.overflowY = 'auto'
+
+})
+
+popupDelivery.addEventListener('click', (e) => {
+   e.target.classList.remove('active')
+   document.querySelector('html').style.overflowY = 'auto'
+})
+
+let currentCard = user.card[0];
 
 popupPayList.addEventListener('change', (e) => {
    e.target.checked = true
@@ -459,6 +653,7 @@ popupPayBtn.addEventListener('click', () => {
    // e.preventDefault()
    popupPay.classList.remove('active')
    const cardInCart = document.querySelectorAll('.pay__card')
+   document.querySelector('html').style.overflowY = 'auto'
    cardInCart.forEach((el) => {
       el.children[0].src = currentCard.image
       el.children[1].innerHTML = currentCard.number
@@ -532,12 +727,20 @@ const deleteAddressBtn = document.querySelectorAll('.address__address .delete')
 favoriteBtn.forEach((el, index) => {
    el.addEventListener('click', () => {
       el.classList.toggle('active')
-      let id = cartItems[index].getAttribute('data-type')
-      const item = cart.find((el) => +id === el.id)
-      if(user.favorites.includes(item)){
-         user.favorites = user.favorites.filter((el) => item.id !== el.id)
+      if(index <= 3){
+         let id = cartItems[index].getAttribute('data-type')
+         const item = cart.find((el) => +id === el.id)
+         if(user.favorites.includes(item)){
+            user.favorites = user.favorites.filter((el) => item.id !== el.id)
+         } else{
+            user.favorites.push(item)
+         }
+      }
+
+      if(el.classList.contains('active')){
+         el.childNodes[1].src = '/src/images/icons/favoriteActive.svg'
       } else{
-         user.favorites.push(item)
+         el.childNodes[1].src = '/src/images/icons/favorite.svg'
       }
       // console.log(cartItems[index].getAttribute('data-type'))
    })
@@ -546,9 +749,10 @@ favoriteBtn.forEach((el, index) => {
 const deleteItem = (block, arr) => {
    let id = block.getAttribute('data-type')
    const itemIndex = arr.findIndex((el) => id == el.id)
+   let li = document.querySelector('.delivery__products').children[itemIndex]
    arr.splice(itemIndex, 1)
    block.remove()
-   console.log(arr)
+   li.remove()
 }
 
 const deleteAddress = (block, arr) => {
@@ -559,10 +763,30 @@ const deleteAddress = (block, arr) => {
 
 deleteCartItemBtn.forEach((el, index) => {
    el.addEventListener('click', (e) => {
-      e.preventDefault()
-      deleteItem(cartItems[index], cart)
-      setSumWithDiscount()
-      setSummaryCount()
+      // e.preventDefault()
+      if(index <= 2){
+         deleteItem(cartItems[index], cart)
+         setSumWithDiscount()
+         setSummaryCount()
+         checkCartIconNotification()
+         changeTextOfSummaryBtn()
+         if(index === 1){
+            document.querySelectorAll('.delivery__products')[1].remove()
+            document.querySelectorAll('.delivery__date')[1].remove()
+         }
+      } else{
+         cartItems[index].remove()
+         document.querySelector('.cart__miss-block .header__title-count').innerText = `${document.querySelectorAll('.cart__miss-block .cart__item').length} товара`
+         if(document.querySelectorAll('.cart__miss-block .cart__item').length === 0){
+            document.querySelector('.cart__miss-block').remove()
+         }
+      }
+
+      document.querySelector('.menu-footer > div > .notification').innerText = cart.length
+
+      if(cart.length === 0){
+         document.querySelector('.menu-footer > div > .notification').style.display = 'none'
+      }
    })
 })
 
@@ -618,7 +842,6 @@ popupDeliveryPointFrom.addEventListener('change', (e) => {
 
 popupDeliveryBtn.addEventListener('click', () => {
    if(popupDeliveryAddressFrom.classList.contains('active')){
-      console.log(currentAddress)
       document.querySelector('.subtitle__left').children[0].innerText = 'Пункт доставки'
       document.querySelector('.subtitle__right #delivery__point').children[0].innerText = currentAddress.place
       document.querySelector('.subtitle__right #delivery__point').children[1].innerHTML = `
@@ -640,6 +863,14 @@ popupDeliveryBtn.addEventListener('click', () => {
       document.querySelector('.summary .summary__delivery-container .delivery__address').innerText = currentPoint.place
    }
    popupDelivery.classList.remove('active')
+   document.querySelector('html').style.overflowY = 'auto'
+})
+
+popupClose.forEach((el) => {
+   el.addEventListener('click', () => {
+      el.parentElement.parentElement.parentElement.classList.remove('active')
+      document.querySelector('html').style.overflowY = 'auto'
+   })
 })
 
 const typesOfInput = ['name', 'surname', 'email', 'phone', 'inn']
@@ -751,6 +982,65 @@ inputsFrom.forEach((input, index) => {
    })
 })
 
+const changeTextOfSummaryBtn = () => {
+   if(document.querySelector('#pay__immid').checked){
+      document.querySelector('#order__btn').innerText = `Оплатить ${document.querySelector('#total__price').innerText} сом`
+   }
+}
+
+document.querySelector('#pay__immid').addEventListener('change', (e) => {
+   if(e.target.checked){
+      document.querySelectorAll('.pay-info').forEach((el) => {
+         el.style.display = 'none'
+      })
+      document.querySelector('#order__btn').innerText = `Оплатить ${document.querySelector('#total__price').innerText} сом`
+   } else{
+      document.querySelectorAll('.pay-info').forEach((el) => {
+         el.style.display = 'block'
+      })
+      document.querySelector('#order__btn').innerText = "Заказать"
+   }
+})
+
 // console.log(deletePointBtn, addressBlock)
 setSummaryCount()
 setSumWithDiscount()
+checkCartIconNotification()
+
+document.querySelectorAll(`.subtitle__right .delivery__products`)[0].children[0].children[1].style.display = 'none'
+
+document.querySelectorAll('.cart__container .cart__item').forEach((el, index) => {
+   let id = el.getAttribute('data-type')
+
+   checkCountOfItem(id, index)
+})
+
+document.querySelector('#order__btn').addEventListener('click', () => {
+   inputsFrom.forEach((input, index) => {
+      if(input.value.length > 0){
+         checkValidation(input, typesOfInput[index])
+      } else{
+         checkEmptyValidation(input, index)
+      }
+   })
+})
+
+document.querySelectorAll('.delete').forEach((el) => {
+   el.addEventListener('mouseover', () => {
+      el.childNodes[1].src = '/src/images/icons/deleteActive.svg' 
+   })
+
+   el.addEventListener('mouseout', () => {
+      el.childNodes[1].src = '/src/images/icons/delete.svg' 
+   })
+})
+
+document.querySelectorAll('.favorite').forEach((el) => {
+   el.addEventListener('mouseover', () => {
+      el.childNodes[1].src = '/src/images/icons/favoriteActive.svg' 
+   })
+
+   el.addEventListener('mouseout', () => {
+      el.childNodes[1].src = '/src/images/icons/favorite.svg' 
+   })
+})

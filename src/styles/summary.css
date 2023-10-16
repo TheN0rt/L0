@@ -1,3 +1,9 @@
+.main-flex{
+   max-width: 430px;
+   flex-grow: 0;
+   flex-shrink: 1;
+}
+
 .summary{
    background: white;
    border-radius: 16px;
@@ -58,10 +64,23 @@
    gap: 12px;
 }
 
+.summary__delivery .delivery__address{
+   font-size: 13px;
+}
+
+.summary__delivery .change{
+   font-size: 13px;
+}
+
 .summary__delivery .summary__delivery-container{
    display: flex;
    flex-direction: column;
    gap: 4px;
+}
+
+.summary h2{
+   font-size: 16px;
+   /* letter-spacing: .5px; */
 }
 
 .summary__delivery .cart__delivery-info{
@@ -71,8 +90,17 @@
    font-size: 13px;
 }
 
+.summary__pay .pay__container{
+   gap: 4px;
+}
+
+.summary__pay .pay__container .pay__card{
+   font-size: 13px;
+}
+
 .summary__pay .cart__delivery-pay{
    padding: 0;
+   gap: 12px;
 }
 
 .summary__pay .cart__delivery-pay .pay__info-block{
@@ -81,7 +109,7 @@
    gap: 8px;
 }
 
-.summary__pay .cart__delivery-pay .pay__info-block .pay__info-checkbox{
+.summary__pay .cart__delivery-pay .pay__info-block .pay__info-checkbox label{
    display: flex;
    align-items: center;
    gap: 8px;
@@ -118,5 +146,25 @@
 
 /* min-width: 100%; */
 
+@media (max-width: 920px) {
+   .main-flex{
+      max-width: 100%;
+   }
+}
 
+@media (max-width: 330px) {
+   .summary{
+      margin: 0;
+      background: transparent;
+      box-shadow: none;
+   }
+
+   .summary__delivery .summary__delivery-container, .summary__pay .pay__container{
+      display: none;
+   }
+
+   .summary__price .summary__title{
+      font-size: 20px;
+   }
+}
 
