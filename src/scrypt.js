@@ -270,10 +270,10 @@ const addToCart = () => {
                   </div>` :  ""}
                <div class="cart__item-icons icons">
                   <div class="icons__item favorite">
-                     <img src="./src/images/icons/favorite.svg" alt="favorite">
+                     <img src="/images/icons/favorite.svg" alt="favorite">
                   </div>
                   <div class="icons__item delete">
-                     <img src="./src/images/icons/delete.svg" alt="delete">
+                     <img src="/images/icons/delete.svg" alt="delete">
                   </div>
                </div>
             </div>
@@ -346,10 +346,10 @@ for(let obj of cart){
       <div class="cart__item-additive-action">
          <div class="cart__item-icons icons">
                <div class="icons__item favorite">
-                  <img src="./src/images/icons/favorite.svg" alt="favorite">
+                  <img src="/images/icons/favorite.svg" alt="favorite">
                </div>
                <div class="icons__item delete">
-                  <img src="./src/images/icons/delete.svg" alt="delete">
+                  <img src="/images/icons/delete.svg" alt="delete">
                </div>
             </div>
          </div>
@@ -506,7 +506,7 @@ const checkCountOfItem = (id, index) => {
          document.querySelector('.subtitle__right').innerHTML += `
          <ul class="delivery__products">
             <li>
-               <img src="./src/images/products/case_0.5x.png" alt="product">
+               <img src="/images/products/case_0.5x.png" alt="product">
                <div class="notification">${moveCount}</div>
             </li>
          </ul>
@@ -685,7 +685,7 @@ for(let el of user.addresses.pointAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src="./src/images/icons/delete.svg" alt="delete">
+      <img src="/images/icons/delete.svg" alt="delete">
    </div>
          `
          popupDeliveryPointFrom.appendChild(div)
@@ -708,7 +708,7 @@ for(let el of user.addresses.deliveryAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src="./src/images/icons/delete.svg" alt="delete">
+      <img src="/images/icons/delete.svg" alt="delete">
    </div>
    `
    popupDeliveryAddressFrom.appendChild(div)
@@ -738,9 +738,9 @@ favoriteBtn.forEach((el, index) => {
       }
 
       if(el.classList.contains('active')){
-         el.childNodes[1].src = './src/images/icons/favoriteActive.svg'
+         el.childNodes[1].src = '/images/icons/favoriteActive.svg'
       } else{
-         el.childNodes[1].src = './src/images/icons/favorite.svg'
+         el.childNodes[1].src = '/images/icons/favorite.svg'
       }
       // console.log(cartItems[index].getAttribute('data-type'))
    })
@@ -1027,20 +1027,20 @@ document.querySelector('#order__btn').addEventListener('click', () => {
 
 document.querySelectorAll('.delete').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = './src/images/icons/deleteActive.svg' 
+      el.childNodes[1].src = '/images/icons/deleteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = './src/images/icons/delete.svg' 
+      el.childNodes[1].src = '/images/icons/delete.svg' 
    })
 })
 
 document.querySelectorAll('.favorite').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = './src/images/icons/favoriteActive.svg' 
+      el.childNodes[1].src = '/images/icons/favoriteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = './src/images/icons/favorite.svg' 
+      el.childNodes[1].src = '/images/icons/favorite.svg' 
    })
 })
