@@ -314,7 +314,7 @@ const addToCart = () => {
 
       document.querySelector('.delivery__products').innerHTML += `
       <li>
-         <img src="${obj.images[1].url}" alt="product">
+         <img src=".${obj.images[1].url}" alt="product">
          <div class="notification">${obj.count <= 184 ? obj.count : obj.count - (obj.count - 184)}</div>
       </li>
       `
@@ -330,7 +330,7 @@ for(let obj of cart){
    textBlock.innerHTML = `
    <div class="cart__item-left">
       <div class="cart__item-img">
-         <img src="${obj.images[0].url}" alt="product">
+         <img src=".${obj.images[0].url}" alt="product">
       </div>
       <div class="cart__item-info info">
          <p class="info__name">
@@ -738,9 +738,9 @@ favoriteBtn.forEach((el, index) => {
       }
 
       if(el.classList.contains('active')){
-         el.childNodes[1].src = '/src/images/icons/favoriteActive.svg'
+         el.childNodes[1].src = './src/images/icons/favoriteActive.svg'
       } else{
-         el.childNodes[1].src = '/src/images/icons/favorite.svg'
+         el.childNodes[1].src = './src/images/icons/favorite.svg'
       }
       // console.log(cartItems[index].getAttribute('data-type'))
    })
@@ -1027,20 +1027,20 @@ document.querySelector('#order__btn').addEventListener('click', () => {
 
 document.querySelectorAll('.delete').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = '/src/images/icons/deleteActive.svg' 
+      el.childNodes[1].src = './src/images/icons/deleteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = '/src/images/icons/delete.svg' 
+      el.childNodes[1].src = './src/images/icons/delete.svg' 
    })
 })
 
 document.querySelectorAll('.favorite').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = '/src/images/icons/favoriteActive.svg' 
+      el.childNodes[1].src = './src/images/icons/favoriteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = '/src/images/icons/favorite.svg' 
+      el.childNodes[1].src = './src/images/icons/favorite.svg' 
    })
 })
