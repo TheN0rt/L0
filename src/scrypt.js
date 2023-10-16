@@ -4,7 +4,7 @@ const user = {
       {
          name: 'mir',
          number: '1234 56•• •••• 1234',
-         image: '/images/banks/mir.png',
+         image: '../src/images/banks/mir.png',
          date: {
             month: 1,
             year: 30,
@@ -13,7 +13,7 @@ const user = {
       {
          name: 'visa',
          number: '1234 56•• •••• 1234',
-         image: '/images/banks/visa.png',
+         image: '../src/images/banks/visa.png',
          date: {
             month: 1,
             year: 30,
@@ -22,7 +22,7 @@ const user = {
       {
          name: 'master',
          number: '1234 56•• •••• 1234',
-         image: '/images/banks/master.png',
+         image: '../src/images/banks/master.png',
          date: {
             month: 1,
             year: 30,
@@ -31,7 +31,7 @@ const user = {
       {
          name: 'maestro',
          number: '1234 56•• •••• 1234',
-         image: '/images/banks/maestro.png',
+         image: '../src/images/banks/maestro.png',
          date: {
             month: 1,
             year: 30,
@@ -91,11 +91,11 @@ let cart = [
       images: [
          {
             name: 'tShirt', 
-            url: '/images/products/tShirt.png'
+            url: '../src/images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: '/images/products/tShirt_0.5x.png'
+            url: '../src/images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -115,11 +115,11 @@ let cart = [
       images: [
          {
             name: 'case', 
-            url: '/images/products/case.png'
+            url: '../src/images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: '/images/products/case_0.5x.png'
+            url: '../src/images/products/case_0.5x.png'
          },
       ], 
       company:{
@@ -138,11 +138,11 @@ let cart = [
       images: [
          {
             name: 'pencil', 
-            url: '/images/products/pencil.png'
+            url: '../src/images/products/pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: '/images/products/pencil_0.5x.png'
+            url: '../src/images/products/pencil_0.5x.png'
          },
       ], 
       company:{
@@ -1030,7 +1030,7 @@ document.querySelectorAll('.delete').forEach((el) => {
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = './images/icons/delete.svg' 
+      el.childNodes[1].src = '../src/images/icons/delete.svg' 
    })
 })
 
