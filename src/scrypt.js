@@ -4,7 +4,7 @@ const user = {
       {
          name: 'mir',
          number: '1234 56•• •••• 1234',
-         image: 'src/images/banks/mir.png',
+         image: '/images/banks/mir.png',
          date: {
             month: 1,
             year: 30,
@@ -13,7 +13,7 @@ const user = {
       {
          name: 'visa',
          number: '1234 56•• •••• 1234',
-         image: 'src/images/banks/visa.png',
+         image: '/images/banks/visa.png',
          date: {
             month: 1,
             year: 30,
@@ -22,7 +22,7 @@ const user = {
       {
          name: 'master',
          number: '1234 56•• •••• 1234',
-         image: 'src/images/banks/master.png',
+         image: '/images/banks/master.png',
          date: {
             month: 1,
             year: 30,
@@ -31,7 +31,7 @@ const user = {
       {
          name: 'maestro',
          number: '1234 56•• •••• 1234',
-         image: 'src/images/banks/maestro.png',
+         image: '/images/banks/maestro.png',
          date: {
             month: 1,
             year: 30,
@@ -91,11 +91,11 @@ let cart = [
       images: [
          {
             name: 'tShirt', 
-            url: 'src/images/products/tShirt.png'
+            url: '/images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: 'src/images/products/tShirt_0.5x.png'
+            url: '/images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -115,11 +115,11 @@ let cart = [
       images: [
          {
             name: 'case', 
-            url: 'src/images/products/case.png'
+            url: '/images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: 'src/images/products/case_0.5x.png'
+            url: '/images/products/case_0.5x.png'
          },
       ], 
       company:{
@@ -138,11 +138,11 @@ let cart = [
       images: [
          {
             name: 'pencil', 
-            url: 'src/images/products/pencil.png'
+            url: '/images/products/pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: 'src/images/products/pencil_0.5x.png'
+            url: '/images/products/pencil_0.5x.png'
          },
       ], 
       company:{
@@ -190,7 +190,6 @@ const stocks = [
       ]
    }
 ]
-
 const cartBlock = document.querySelector('.cart__container .cart-block')
 const cartMissBlock = document.querySelector('.cart__miss-block .cart-block')
 const accordions = document.querySelectorAll('.cart__accord-main')
@@ -270,10 +269,10 @@ const addToCart = () => {
                   </div>` :  ""}
                <div class="cart__item-icons icons">
                   <div class="icons__item favorite">
-                     <img src=".src/images/icons/favorite.svg" alt="favorite">
+                     <img src="./images/icons/favorite.svg" alt="favorite">
                   </div>
                   <div class="icons__item delete">
-                     <img src=".src/images/icons/delete.svg" alt="delete">
+                     <img src="./images/icons/delete.svg" alt="delete">
                   </div>
                </div>
             </div>
@@ -346,10 +345,10 @@ for(let obj of cart){
       <div class="cart__item-additive-action">
          <div class="cart__item-icons icons">
                <div class="icons__item favorite">
-                  <img src=".src/images/icons/favorite.svg" alt="favorite">
+                  <img src="./images/icons/favorite.svg" alt="favorite">
                </div>
                <div class="icons__item delete">
-                  <img src=".src/images/icons/delete.svg" alt="delete">
+                  <img src="/images/icons/delete.svg" alt="delete">
                </div>
             </div>
          </div>
@@ -506,7 +505,7 @@ const checkCountOfItem = (id, index) => {
          document.querySelector('.subtitle__right').innerHTML += `
          <ul class="delivery__products">
             <li>
-               <img src=".src/images/products/case_0.5x.png" alt="product">
+               <img src="./images/products/case_0.5x.png" alt="product">
                <div class="notification">${moveCount}</div>
             </li>
          </ul>
@@ -685,7 +684,7 @@ for(let el of user.addresses.pointAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src=".src/images/icons/delete.svg" alt="delete">
+      <img src="./images/icons/delete.svg" alt="delete">
    </div>
          `
          popupDeliveryPointFrom.appendChild(div)
@@ -708,7 +707,7 @@ for(let el of user.addresses.deliveryAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src=".src/images/icons/delete.svg" alt="delete">
+      <img src="./images/icons/delete.svg" alt="delete">
    </div>
    `
    popupDeliveryAddressFrom.appendChild(div)
@@ -738,9 +737,9 @@ favoriteBtn.forEach((el, index) => {
       }
 
       if(el.classList.contains('active')){
-         el.childNodes[1].src = '.src/images/icons/favoriteActive.svg'
+         el.childNodes[1].src = './images/icons/favoriteActive.svg'
       } else{
-         el.childNodes[1].src = '.src/images/icons/favorite.svg'
+         el.childNodes[1].src = './images/icons/favorite.svg'
       }
       // console.log(cartItems[index].getAttribute('data-type'))
    })
@@ -1027,20 +1026,20 @@ document.querySelector('#order__btn').addEventListener('click', () => {
 
 document.querySelectorAll('.delete').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = '.src/images/icons/deleteActive.svg' 
+      el.childNodes[1].src = './images/icons/deleteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = '.src/images/icons/delete.svg' 
+      el.childNodes[1].src = './images/icons/delete.svg' 
    })
 })
 
 document.querySelectorAll('.favorite').forEach((el) => {
    el.addEventListener('mouseover', () => {
-      el.childNodes[1].src = '.src/images/icons/favoriteActive.svg' 
+      el.childNodes[1].src = './images/icons/favoriteActive.svg' 
    })
 
    el.addEventListener('mouseout', () => {
-      el.childNodes[1].src = '.src/images/icons/favorite.svg' 
+      el.childNodes[1].src = './images/icons/favorite.svg' 
    })
 })
