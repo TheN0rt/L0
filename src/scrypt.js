@@ -707,7 +707,7 @@ for(let el of user.addresses.deliveryAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src="src\images\icons\delete.svg" alt="delete">
+      <img src="./src/images/icons/delete.svg" alt="delete">
    </div>
    `
    popupDeliveryAddressFrom.appendChild(div)
