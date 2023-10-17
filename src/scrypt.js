@@ -91,11 +91,11 @@ let cart = [
       images: [
          {
             name: 'tShirt', 
-            url: 'src/images/products/tShirt.png'
+            url: '/src/images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: 'src/images/products/tShirt_0.5x.png'
+            url: '/src/images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -115,11 +115,11 @@ let cart = [
       images: [
          {
             name: 'case', 
-            url: '..images/products/case.png'
+            url: '/src/images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: '..images/products/case_0.5x.png'
+            url: '/src/images/products/case_0.5x.png'
          },
       ], 
       company:{
@@ -138,11 +138,11 @@ let cart = [
       images: [
          {
             name: 'pencil', 
-            url: 'src\images\products\pencil.png'
+            url: '/src/images/products/pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: 'src\images\products\pencil_0.5x.png'
+            url: '/src/images/products/pencil_0.5x.png'
          },
       ], 
       company:{
@@ -365,7 +365,7 @@ for(let el of user.card){
       <input type="radio" name="bank" id="${el.name}__bank" value="${el.name}">
       <div class="custom__radio"></div>
       <div class="popup__card">
-         <img src="${el.image}" alt="bank">
+         <img src=".${el.image}" alt="bank">
          <span class="card__number">${el.number}</span>
       </div>
    `
