@@ -138,11 +138,11 @@ let cart = [
       images: [
          {
             name: 'pencil', 
-            url: '/src/images/products/pencil.png'
+            url: 'src\images\products\pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: '/src/images/products/pencil_0.5x.png'
+            url: 'src\images\products\pencil_0.5x.png'
          },
       ], 
       company:{
@@ -707,7 +707,7 @@ for(let el of user.addresses.deliveryAddresses){
       </div>
    </label>
    <div class="icons__item delete">
-      <img src="./src/images/icons/delete.svg" alt="delete">
+      <img src="src\images\icons\delete.svg" alt="delete">
    </div>
    `
    popupDeliveryAddressFrom.appendChild(div)
