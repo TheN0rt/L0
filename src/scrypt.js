@@ -91,11 +91,11 @@ let cart = [
       images: [
          {
             name: 'tShirt', 
-            url: '/src/images/products/tShirt.png'
+            url: 'src/images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: '/src/images/products/tShirt_0.5x.png'
+            url: 'src/images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -115,11 +115,11 @@ let cart = [
       images: [
          {
             name: 'case', 
-            url: '/src/images/products/case.png'
+            url: '..images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: '/src/images/products/case_0.5x.png'
+            url: '..images/products/case_0.5x.png'
          },
       ], 
       company:{
