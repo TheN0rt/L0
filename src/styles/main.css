@@ -13,7 +13,6 @@ main{
 
 main .main__container{
    display: flex;
-   /* gap: 32px; */
    flex-grow: 1;
 }
 

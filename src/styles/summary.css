@@ -80,7 +80,6 @@
 
 .summary h2{
    font-size: 16px;
-   /* letter-spacing: .5px; */
 }
 
 .summary__delivery .cart__delivery-info{
@@ -143,8 +142,6 @@
 .summary input[type="checkbox"]:checked{
    border: 1px solid #CB11AB;
 }
-
-/* min-width: 100%; */
 
 @media (max-width: 920px) {
    .main-flex{

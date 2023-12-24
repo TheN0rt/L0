@@ -14,7 +14,6 @@
    justify-content: center;
    background:#05000A4D;
    z-index: 100;
-   /* overflow-y: hidden; */
 }
 
 .popup.active .popup__body{
@@ -105,7 +104,6 @@
 
 .popup__delivery-selection .popup__delivery-item:hover, .popup__delivery-selection .popup__delivery-item.active{
    border: 2px solid #CB11AB;
-   /* background: #CB11AB; */
 }
 
 .popup__delivery-selection .popup__delivery-item > p{
@@ -149,11 +147,6 @@
 .popup__subtitle .popup__delivery-choose form label img{
    margin-top: 4px;
 }
-
-/* .popup__subtitle .popup__delivery-choose ul li{
-   display: flex;
-   gap: 8px;
-} */
 
 .popup__subtitle .popup__delivery-choose ul li .popup__address{
    display: flex;

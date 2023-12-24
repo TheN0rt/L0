@@ -1,9 +1,7 @@
-
 .cart{
    display: flex;
    gap: 32px;
    flex-grow: 1;
-   /* justify-content: space-between; */
 }
 
 main .main__container .cart .cart__wrapper{
@@ -23,12 +21,6 @@ main .main__container .cart .cart__wrapper .cart__container{
    font-size: 28px;
 }
 
-.cart .cart__wrapper .cart__container .cart-accord{
-}
-
-.cart-accord.active{
-}
-
 .cart-accord__header{
    display: flex;
    align-items: center;
@@ -36,13 +28,25 @@ main .main__container .cart .cart__wrapper .cart__container{
    margin-bottom: 20px;
 }
 
+.header__input .header__input-p{
+   display: none;
+}
+
+.header__input .header__input-p.isActive{
+   display: block;
+}
+
 .cart-accord__header .header__input label{
-   display: flex;
+   display: none;
    align-items: center;
    gap: 11px;
    cursor: pointer;
    font-weight: 400;
    line-height: 24px;
+}
+
+.cart-accord__header .header__input label.isActive{
+   display: flex;
 }
 
 .cart-accord__header .header__title{
@@ -55,7 +59,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    transition: 0.3s ease-in all;
 }
 
-.cart-accord__header .header__arrow.active > img{
+.cart-accord__header .header__arrow > img.active{
    transform: rotate(180deg);
 }
 
@@ -76,14 +80,11 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart-block .cart__item{
    display: flex;
-   /* align-items: center; */
    justify-content: space-between;
-   /* z-index: 1; */
 }
 
 .cart-block .cart__item .cart__item-left, .cart-block .cart__item .cart__item-right{
    display: flex;
-   /* align-items: center; */
 }
 
 .cart-block .cart__item .cart__item-left{
@@ -93,7 +94,6 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart-block .cart__item .cart__item-left .cart__item-checkbox{
    display: flex;
-   /* flex-direction: column; */
    align-items: center;
    gap: 16px;
 }
@@ -113,7 +113,6 @@ main .main__container .cart .cart__wrapper .cart__container{
 .cart__item-info .info__name{
    font-size: 16px;
    cursor: pointer;
-   /* white-space: nowrap; */
 }
 
 .cart__item-info .info__color-block{
@@ -129,7 +128,6 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    flex-direction: column;
    gap: 4px;
-   /* opacity: .8; */
 }
 
 .cart__item-info .info__footer .info__company-name{
@@ -138,7 +136,6 @@ main .main__container .cart .cart__wrapper .cart__container{
    gap: 8px;
 }
 
-/* модалка для информации о компании */
 .info__company-name-info{
    position: relative;
 }
@@ -210,8 +207,13 @@ main .main__container .cart .cart__wrapper .cart__container{
 } 
 
 .cart__item-additive-action .cart__item-attention{
+   display: none;
    font-size: 13px;
    color: #FF3B30;
+}
+
+.cart__item-additive-action .cart__item-attention.isActive{
+   display: block;
 }
 
 .cart__item-icons{
@@ -343,66 +345,77 @@ main .main__container .cart .cart__wrapper .cart__container{
    padding: 0 24px;
 }
 
-.cart__delivery-container .cart__delivery-subtitle{
-   display: flex;
-   gap: 32px;
-   /* align-items: center; */
-}
-
-.cart__delivery-subtitle .subtitle__left, .cart__delivery-subtitle .subtitle__right{
+.subtitle{
    display: flex;
    flex-direction: column;
    gap: 16px;
 }
 
-.cart__delivery-subtitle .subtitle__left{
-   padding: 0 0 0 24px;
+.subtitle li{
+   display: flex;
+   gap: 32px;
+}
+
+.subtitle > li{
+   padding-left: 24px;
+   align-items: center;
+}
+
+.subtitle li > p:first-child{
+   width: 153px;
+}
+
+.subtitle li > p:first-child, .delivery__date{
    font-weight: 600;
 }
 
-.subtitle__left .delivery__date{
-   /* Подогнать */
+.subtitle .delivery__date{
    margin-bottom: 24px; 
 }
 
-.cart__delivery-subtitle .subtitle__right{
+.subtitle li > p:last-child{
    padding: 0 24px 0 0;
 }
 
-.subtitle__left li:first-child{
-   margin-bottom: 24px;
+.subtitle .delivery__product{
+   position: relative;
 }
 
-.subtitle__right #delivery__point{
+.subtitle #delivery__point{
    display: flex;
    flex-direction: column;
    gap: 4px;
 }
 
-.subtitle__right #delivery__point p:last-child{
+.subtitle #delivery__point p:last-child{
    display: flex;
    align-items: center;
    gap: 8px;
 }
 
-.rating::before{
+.rating{
+   display: none;
+}
+
+.rating.active{
+   display: inline;
+}
+
+.rating.active::before{
    content: url('../images/icons/star.svg');
    margin-right: 4px;
 }
 
-.subtitle__right .delivery__products{
+.subtitle .delivery__products{
    display: flex;
    align-items: center;
    gap: 8px;
 }
 
-.subtitle__right .delivery__products li{
-   position: relative;
-}
-
-.subtitle__right .delivery__products li .notification{
+.delivery__products .delivery__products-notification{
    box-sizing: content-box;
    right: -8px;
+   padding: 0 3px;
 }
 
 .cart__delivery-pay{
@@ -426,7 +439,12 @@ main .main__container .cart .cart__wrapper .cart__container{
 }
 
 .cart__delivery-pay .pay-info{
+   display: none;
    font-size: 13px;
+}
+
+.cart__delivery-pay .pay-info.isVisible{
+   display: block;
 }
 
 .cart-form{
@@ -441,7 +459,6 @@ main .main__container .cart .cart__wrapper .cart__container{
    height: 128px;
    display: flex;
    flex-direction: column;
-   /* gap: 16px; */
 }
 
 .cart-form form .form__start, .cart-form form .form__end{
@@ -453,21 +470,12 @@ main .main__container .cart .cart__wrapper .cart__container{
    flex-grow: 1;
 }
 
-.cart-form form .form__end .form__input:nth-child(2) label{
-   /* margin-top: -21px; */
-   opacity: 1;
-}
-
-.cart-form form .form__input:last-child > p{
-   font-size: 12px;
-}
-
 .cart-form form .form__input .form__input-container{
    border-bottom: 1px solid #00000033;
    min-width: 100%;
 }
 
-.cart-form form .form__input .form__input-container.error{
+.cart-form form .form__input.error .form__input-container{
    border-bottom: 1px solid #F55123;
 }
 
@@ -478,7 +486,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    padding: 4px 0;
 }
 
-.cart-form form .form__input .form__input-container input[type="text"].error{
+.cart-form form .form__input.error .form__input-container input[type="text"]{
    color: #F55123;
 }
 
@@ -495,11 +503,24 @@ main .main__container .cart .cart__wrapper .cart__container{
    opacity: 0;
 }
 
-.cart-form form .form__input p.error{
+.cart-form form .form__input label.isVisible{
+   opacity: 1;
+}
+
+.cart-form form .form__input span{
+   font-size: 12px;
+   display: none;
+}
+
+.cart-form form .form__input span.isVisible{
+   display: inline;
+}
+
+.cart-form form .form__input p{
    opacity: 0;
 }
 
-.cart-form form .form__input p.error.active{
+.cart-form form .form__input.error p{
    font-size: 12px;
    font-weight: 400;
    color: #F55123;
@@ -521,7 +542,6 @@ main .main__container .cart .cart__wrapper .cart__container{
 @media (max-width:690px) {
    main .main__container .cart .cart__wrapper{
       width: auto;
-      /* max-width: ; */
    }
 
    .cart .cart__wrapper .cart__container h1{
@@ -592,7 +612,6 @@ main .main__container .cart .cart__wrapper .cart__container{
    .cart__miss-block .cart-block .cart__item .cart__item-right{
       width: auto;
       align-self: flex-end;
-      /* max-width: 320px; */
    }
 
    .cart__miss-block .cart-block .cart__item .cart__item-right .cart__item-additive-action{
