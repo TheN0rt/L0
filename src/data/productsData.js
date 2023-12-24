@@ -10,11 +10,11 @@ export const products = [
       images: [
          {
             name: 'tShirt', 
-            url: '/src/images/products/tShirt.png'
+            url: '../images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: '/src/images/products/tShirt_0.5x.png'
+            url: '../images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -36,11 +36,11 @@ export const products = [
       images: [
          {
             name: 'case', 
-            url: '/src/images/products/case.png'
+            url: '../images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: '/src/images/products/case_0.5x.png'
+            url: '../images/products/case_0.5x.png'
          },
       ], 
       company:{
@@ -61,11 +61,11 @@ export const products = [
       images: [
          {
             name: 'pencil', 
-            url: '/src/images/products/pencil.png'
+            url: '../images/products/pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: '/src/images/products/pencil_0.5x.png'
+            url: '../images/products/pencil_0.5x.png'
          },
       ], 
       company:{
@@ -91,11 +91,11 @@ export const missingProducts = [
       images: [
          {
             name: 'tShirt', 
-            url: '/src/images/products/tShirt.png'
+            url: '../images/products/tShirt.png'
          },
          {
             name: 'tShirt_0.5x', 
-            url: '/src/images/products/tShirt_0.5x.png'
+            url: '../images/products/tShirt_0.5x.png'
          },
       ], 
       company:{
@@ -117,11 +117,11 @@ export const missingProducts = [
       images: [
          {
             name: 'case', 
-            url: '/src/images/products/case.png'
+            url: '../images/products/case.png'
          },
          {
             name: 'case_0.5x', 
-            url: '/src/images/products/case_0.5x.png'
+            url: '../images/products/case_0.5x.png'
          },
       ], 
       company:{
@@ -142,11 +142,11 @@ export const missingProducts = [
       images: [
          {
             name: 'pencil', 
-            url: '/src/images/products/pencil.png'
+            url: '../images/products/pencil.png'
          },
          {
             name: 'pencil_0.5x', 
-            url: '/src/images/products/pencil_0.5x.png'
+            url: '../images/products/pencil_0.5x.png'
          },
       ], 
       company:{

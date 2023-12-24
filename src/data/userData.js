@@ -4,7 +4,7 @@ export const user = {
       {
          name: 'mir',
          number: '1234 56•• •••• 1234',
-         image: '/src/images/banks/mir.png',
+         image: '../images/banks/mir.png',
          date: {
             month: 1,
             year: 30,
@@ -13,7 +13,7 @@ export const user = {
       {
          name: 'visa',
          number: '1234 56•• •••• 1234',
-         image: '/src/images/banks/visa.png',
+         image: '../images/banks/visa.png',
          date: {
             month: 1,
             year: 30,
@@ -22,7 +22,7 @@ export const user = {
       {
          name: 'master',
          number: '1234 56•• •••• 1234',
-         image: '/src/images/banks/master.png',
+         image: '../images/banks/master.png',
          date: {
             month: 1,
             year: 30,
@@ -31,7 +31,7 @@ export const user = {
       {
          name: 'maestro',
          number: '1234 56•• •••• 1234',
-         image: '/src/images/banks/maestro.png',
+         image: '../images/banks/master.png',
          date: {
             month: 1,
             year: 30,
