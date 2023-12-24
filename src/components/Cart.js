@@ -40,16 +40,15 @@ export class Cart{
    }
 
    changeSummaryInfoInAccord(products){
-      const productCounter = products.reduce((acc, product) => acc += product.isChecked ? product.count : 0, 0)
+      const productCounter = products.reduce((acc, product) => acc += product.count , 0)
       const totalPrice = products.reduce((acc, product) =>
-      acc += product.isChecked ? getPriceWithDiscount(product.price, product.count, product.percentOfdiscount, user.percentOfdiscount) : 0, 0)
+      acc += getPriceWithDiscount(product.price, product.count, product.percentOfdiscount, user.percentOfdiscount), 0)
 
       document.querySelector('.header__productCounter').innerText = productCounter + morphWord(productCounter, [' товар', ' товара', ' товаров'])
       document.querySelector('.header__productPrice').innerText =  totalPrice.toLocaleString() + ' сом'
    }
 
    addFunctionalityForProduct(){
-      const discount = userService.getDiscount()
       const products = cartService.getProducts()
       const missingProducts = cartService.getMissingProducts()
       const cartItemCheckboxes = document.querySelectorAll('.cart__item .checkbox')
@@ -175,6 +174,7 @@ export class Cart{
          } else{
             formService.checkEmptyValidation(input, typesOfInput[index])
          }
+
          if(typesOfInput[index] in formService.getValidateError()){
             inputForms[index].classList.add('error')
          } else{
@@ -192,7 +192,9 @@ export class Cart{
 
       inputs.forEach((input, index) => {
          input.addEventListener('blur', () => {
-            checkFormInput(input, index)
+            if(input.value.length > 0){
+               checkFormInput(input, index, formService.checkValidation)
+            }
          })
       
          input.addEventListener('input', () => {
@@ -200,6 +202,8 @@ export class Cart{
                document.querySelectorAll('.form__input').forEach(el => {
                   if(el.contains(input)) el.querySelector('label').classList.add('isVisible')
                })
+
+               inputForms[index].classList.remove('error')
             } else{
                document.querySelectorAll('.form__input').forEach(el => {
                   if(el.contains(input)) el.querySelector('label').classList.remove('isVisible')

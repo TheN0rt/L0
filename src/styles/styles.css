@@ -1,3 +1,4 @@
+@import url('./segoe_ui.css');
 @import url('./header.css');
 @import url('./main.css');
 @import url('./footer.css');
@@ -6,7 +7,6 @@
    padding: 0;
    margin: 0;
    box-sizing: border-box;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a{
@@ -20,6 +20,7 @@ html, body{
    min-height: 100vh;
    min-width: 100vw;
    overflow-x: hidden;
+   font-family: 'Segoe UI';
 }
 
 .wrapper{
@@ -38,6 +39,15 @@ ul li{
    list-style: none;
 }
 
+hr{
+   box-sizing: border-box;
+   background: #0000001A;
+   opacity: .3;
+   height: 1px;
+   border-bottom: none;
+   margin-bottom: 12px;
+}
+
 .notification{
    display: none;
    position: absolute;
@@ -48,9 +58,9 @@ ul li{
    justify-content: center;
    padding: 0 2px;
    height: 16px;
-   width: 16px;
+   min-width: 16px;
    color: white;
-   font-weight: 700;
+   font-family: 'Segoe UI Gras';
    font-size: 10px;
    border-radius: 50%;
 }
@@ -60,13 +70,14 @@ ul li{
 }
 
 input[type="checkbox"]{
+   box-sizing: border-box;
    width: 22px;
    height: 22px;
    border: 1px solid #00000033;
    display: flex;
    align-items: center;
    justify-content: center;
-   border-radius: 5px;
+   border-radius: 6px;
    appearance: none;
    -webkit-appearance: none;
    cursor: pointer;
@@ -90,13 +101,23 @@ input[type="text"]{
 .green{
    color: #0CB477;
    cursor: pointer;
+   border-bottom: 1px dashed #0CB47733;
 }
 
 .change{
    color: #CB11AB;
-   font-weight: 700;
+   font-family: 'Segoe UI Gras';
    font-size: 16px;
+   line-height: 24px;
    cursor: pointer;
+   letter-spacing: calc(1em/50);
+   margin-top: 3px;
+}
+
+.change.date{
+   border-bottom: 1px dashed #CB11AB33;
+   align-self: flex-start;
+   margin-top: 0;
 }
 
 .gray{
@@ -121,7 +142,7 @@ input[type="text"]{
    background: #CB11AB;
    color: #FFFFFF;
    font-size: 16px;
-   font-weight: 700;
+   font-family: 'Segoe UI Gras';
    border: none;
    border-radius: 8px;
    cursor: pointer;

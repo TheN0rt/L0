@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="./src/styles/styles.css">
-   <title>Document</title>
+   <title>Товары и точка</title>
 </head>
 <body>
    <div class="wrapper">
@@ -14,9 +14,7 @@
       <!-- /Popup pay -->
 
       <!-- Popup delivery -->
-      <div class="popup" id="popup__delivery">
-         
-      </div>
+      <div class="popup" id="popup__delivery"></div>
       <!-- /Popup delivery -->
 
       <div class="container">
@@ -193,7 +191,7 @@
                   </div>
                   <div class="cart__item-info info">
                      <p class="info__name" data-tag="productName"></p>
-                     <div class="info__color-block">
+                     <div class="info__color-block isActive" data-tag="infoBlock">
                         <span data-tag="productColor"></span>
                         <span data-tag="productSize"></span>
                      </div>
@@ -220,7 +218,7 @@
                <div class="cart__item-right">
                   <div class="cart__item-additive-action">
                      <div class="cart__item-counter counter">
-                        <span class="counter__minus" data-tag="productDecrease">-</span>
+                        <span class="counter__minus" data-tag="productDecrease">−</span>
                         <span class="counter__count" data-tag="productCount"></span>
                         <span class="counter__plus" data-tag="productIncrease">+</span>
                      </div>
@@ -275,7 +273,7 @@
                   </div>
                   <div class="cart__item-info info">
                      <p class="info__name" data-tag="productName"></p>
-                     <div class="info__color-block">
+                     <div class="info__color-block isActive">
                         <span data-tag="productColor"></span>
                         <span data-tag="productSize"></span>
                      </div>
@@ -305,7 +303,7 @@
                         <span>Итого</span>
                         <p>
                            <span id="total__price" data-tag="summaryPrice"></span>
-                           сом
+                           <span>сом</span>
                         </p>
                      </div>
                      <div class="summary__info">
@@ -345,14 +343,14 @@
                               </span>
                            </div>
                            <p class="delivery__address" data-tag="summaryAddress">Бишкек, улица Ахматбека Суюмбаева, 12/1</p>
-                           <span class="change" data-tag="summaryDeliveryDate">5-8 фев</span>
+                           <span class="change date" data-tag="summaryDeliveryDate">5-8 фев</span>
                         </div>
                         <div class="cart__delivery-info gray-background">
                            <img src="./src/images/icons/done_green.svg" alt="done">
                            <div>
                               Обратная доставка товаров на склад при отказе —
                               <div class="free green">
-                                 бесплатно
+                                 <span>бесплатно</span>
                                  <div class="free-popup">
                                     <p>Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</p>
                                  </div>
@@ -445,7 +443,7 @@
                   </li>
                   <li>
                      <p>Стоимость доставки</p>
-                     <p>Бесплатно</p>
+                     <span>Бесплатно</span>
                   </li>
                   <li>
                      <ul data-tag="deliveryProducts">
@@ -484,7 +482,7 @@
                      </span>
                      <p class="pay__card-date">
                         <span class="pay__card-month" data-tag="payCardMonth">01</span>
-                        /
+                        <span>/</span>
                         <span class="pay__card-year" data-tag="payCardYear">30</span>
                      </p>
                   </p>
@@ -612,7 +610,6 @@
             </div>
             <div class="favorite__mobile">
                <img src="./src/images/icons/favoriteMobile.svg" alt="favorite">
-               <div class="notification"></div>
             </div>
             <img src="./src/images/icons/profileMobile.svg" alt="profile">
          </section>

@@ -10,10 +10,10 @@
    box-shadow: 0px 0px 1px 0px #0000004D;
    box-shadow: 0px 2px 10px 0px #00000026;
    padding: 16px 24px 24px 24px;
-   margin: 30px 0 24px;
+   margin: 24px 0 24px;
    display: flex;
    flex-direction: column;
-   gap: 24px;
+   gap: 20px;
 }
 
 .summary .summary__container{
@@ -35,7 +35,13 @@
 
 .summary__price .summary__title{
    font-size: 24px;
-   font-weight: 700;
+   line-height: 32px;
+   font-family: 'Segoe UI Gras';
+   letter-spacing: calc(-1em/50);
+}
+
+.summary__price .summary__title > p span:last-child{
+   font-size: 20px;
 }
 
 .summary__price .summary__title, .summary__price .summary__info{
@@ -47,6 +53,7 @@
 .summary__price .summary__info ul{
    display: flex;
    flex-direction: column;
+   gap: 2px;
 }
 
 .summary__price .summary__info ul:last-child li{
@@ -61,25 +68,30 @@
 .summary__delivery{
    display: flex;
    flex-direction: column;
-   gap: 12px;
+   gap: 6px;
 }
 
 .summary__delivery .delivery__address{
    font-size: 13px;
+   margin-top: 2px;
 }
 
 .summary__delivery .change{
    font-size: 13px;
 }
 
+.summary__delivery .change:nth-child(2){
+   margin: 6px 2px 0 0;
+}
+
 .summary__delivery .summary__delivery-container{
    display: flex;
    flex-direction: column;
-   gap: 4px;
 }
 
 .summary h2{
    font-size: 16px;
+   line-height: 24px;
 }
 
 .summary__delivery .cart__delivery-info{
@@ -154,6 +166,14 @@
       margin: 0;
       background: transparent;
       box-shadow: none;
+   }
+
+   .summary .summary__container{
+      gap: 16px;
+   }
+
+   .summary__delivery .cart__delivery-info, .summary__pay .cart__delivery-pay .pay__info-block{
+      background: #FFFFFF;
    }
 
    .summary__delivery .summary__delivery-container, .summary__pay .pay__container{

@@ -9,6 +9,7 @@ main .main__container .cart .cart__wrapper{
    flex-direction: column;
    gap: 40px;
    width: 891px;
+   margin-top: 6px;
 }
 
 main .main__container .cart .cart__wrapper .cart__container{
@@ -19,13 +20,16 @@ main .main__container .cart .cart__wrapper .cart__container{
 .cart .cart__wrapper .cart__container h1{
    margin: 30px 0 24px;
    font-size: 28px;
+   font-family: 'Segoe UI Gras';
+   line-height: 36px;
+   letter-spacing: calc(-1em/50);
 }
 
 .cart-accord__header{
    display: flex;
    align-items: center;
    justify-content: space-between;
-   margin-bottom: 20px;
+   margin-bottom: 17px;
 }
 
 .header__input .header__input-p{
@@ -38,7 +42,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart-accord__header .header__input label{
    display: none;
-   align-items: center;
+   align-items: baseline;
    gap: 11px;
    cursor: pointer;
    font-weight: 400;
@@ -51,12 +55,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart-accord__header .header__title{
    font-size: 16px;
-   font-weight: 600;
-}
-
-.cart-accord__header .header__arrow{
-   transform: rotate(180deg);
-   transition: 0.3s ease-in all;
+   font-family: 'Segoe semibold';
 }
 
 .cart-accord__header .header__arrow > img.active{
@@ -75,7 +74,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    flex-direction: column;
    margin-top: 7px;
-   gap: 34px;
+   gap: 30px;
 }
 
 .cart-block .cart__item{
@@ -95,31 +94,37 @@ main .main__container .cart .cart__wrapper .cart__container{
 .cart-block .cart__item .cart__item-left .cart__item-checkbox{
    display: flex;
    align-items: center;
-   gap: 16px;
+   gap: 12px;
 }
 
 .cart__item .cart__item-right{
-   gap: 16px;
+   align-self: flex-start;
+   gap: 4px;
 }
 
 .cart-block .cart__item .cart__item-info{
    display: flex;
    flex-direction: column;
-   gap: 8px;
+   gap: 7px;
    font-weight: 400;
    max-width: 275px;
 }
 
 .cart__item-info .info__name{
    font-size: 16px;
+   line-height: 24px;
    cursor: pointer;
 }
 
 .cart__item-info .info__color-block{
    font-size: 13px;
-   display: flex;
+   display: none;
    align-items: center;
    gap: 16px;
+}
+
+.cart__item-info .info__color-block.isActive{
+   display: flex;
 }
 
 .cart__item-info .info__footer{
@@ -188,15 +193,26 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    align-items: center;
    justify-content: center;
-   gap: 8px;
    height: 44px;
    width: 100px;
-   font-size: 20px;
+   font-size: 16px;
+   line-height: 24px;
    background-color: white;
    border-radius: 8px;
 }
 
+.cart__item-additive-action .cart__item-counter .counter__count{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-grow: 1;
+   padding-bottom: 6px;
+}
+
 .cart__item-counter .counter__minus, .cart__item-counter .counter__plus{
+   font-size: 20px;
+   line-height: 24px;
+   letter-spacing: calc(1em/50);
    width: 24px;
    height: 24px;
    display: flex;
@@ -204,11 +220,21 @@ main .main__container .cart .cart__wrapper .cart__container{
    justify-content: center;
    background-color: transparent;
    cursor: pointer;
+   padding-bottom: 5px;
 } 
+
+.cart__item-counter .counter__minus{
+   padding-left: 6px;
+}
+
+.cart__item-counter .counter__plus{
+   padding-right: 9px;
+}
 
 .cart__item-additive-action .cart__item-attention{
    display: none;
    font-size: 13px;
+   line-height: 16px;
    color: #FF3B30;
 }
 
@@ -220,7 +246,11 @@ main .main__container .cart .cart__wrapper .cart__container{
    display: flex;
    justify-content: flex-end;
    align-items: center;
-   gap: 16px;
+   gap: 20px;
+}
+
+.cart__item-icons .delete{
+   padding-right: 4px;
 }
 
 .cart__item-price{
@@ -228,18 +258,22 @@ main .main__container .cart .cart__wrapper .cart__container{
    flex-direction: column;
    gap: 5px;
    width: 120px;
+   margin-top: -3px;
 }
 
 .cart__item-price .price__current{
-   font-weight: 700;
+   font-family: 'Segoe UI Gras';
    font-size: 16px;
    align-self: flex-end;
-   font-weight: 700;
+   letter-spacing: calc(1em/50);
 }
 
 .price__current .price__current-number{
    font-size: 20px;
-   letter-spacing: -1.5px;
+}
+
+.price__current .price__current-number.small{
+   font-size: 16px;
 }
 
 .price__previous{
@@ -247,6 +281,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    color: gray;
    border-bottom: 1px dashed gray;
    font-size: 13px;
+   line-height: 16px;
    align-self: flex-end;
 }
 
@@ -299,8 +334,20 @@ main .main__container .cart .cart__wrapper .cart__container{
    color: gray;
 }
 
+.cart__miss-block .cart__accord-main .cart-block{
+   gap: 28px;
+}
+
 .cart__miss-block .cart__item .cart__item-right{
-   width: 190px;
+   width: 182px;
+}
+
+.cart__miss-block .header__title{
+   margin-top: -6px;
+}
+
+.cart__miss-block .cart__item .info__name{
+   width: 309px;
 }
 
 .cart__delivery-block{
@@ -311,13 +358,16 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .cart__delivery-block h2{
    font-size: 24px;
+   line-height: 32px;
+   letter-spacing: calc(-1em/50);
 }
 
 .cart-flex{
+   margin-top: -5px;
    display: flex;
    flex-direction: column;
    gap: 24px;
-   padding: 16px 0 24px;
+   padding: 18px 0 24px;
    background: #FFFFFF;
    border-radius: 16px;
 }
@@ -327,18 +377,21 @@ main .main__container .cart .cart__wrapper .cart__container{
    align-items: center;
    gap: 8px;
    padding: 0 24px;
+   margin-top: -6px;
+   font-size: 13px;
+   line-height: 16px;
 }
 
 .cart__delivery-container{
    display: flex;
    flex-direction: column;
-   gap: 16px;
+   gap: 14px;
 }
 
 .main__title{
    font-size: 24px;
-   font-weight: 700;
-   letter-spacing: -1px;
+   font-family: 'Segoe UI Gras';
+   letter-spacing: calc(-1em/50);
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -358,11 +411,26 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .subtitle > li{
    padding-left: 24px;
-   align-items: center;
+   align-items: flex-start;
+}
+
+.subtitle > li:last-child{
+   margin-top: 6px;
+}
+
+.subtitle > li:last-child ul{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.subtitle li > p{
+   font-family: 'Segoe UI Gras';
+   font-size: 16px;
 }
 
 .subtitle li > p:first-child{
-   width: 153px;
+   min-width: 153px;
 }
 
 .subtitle li > p:first-child, .delivery__date{
@@ -384,7 +452,11 @@ main .main__container .cart .cart__wrapper .cart__container{
 .subtitle #delivery__point{
    display: flex;
    flex-direction: column;
-   gap: 4px;
+}
+
+.subtitle #delivery__point span{
+   font-size: 13px;
+   margin-top: 6px;
 }
 
 .subtitle #delivery__point p:last-child{
@@ -414,12 +486,17 @@ main .main__container .cart .cart__wrapper .cart__container{
 
 .delivery__products .delivery__products-notification{
    box-sizing: content-box;
-   right: -8px;
-   padding: 0 3px;
+   right: -3px;
+   top: -10px;
+   border-radius: 50%;
+   font-size: 10px;
+   line-height: 18px;
+   min-width: 12px;
 }
 
 .cart__delivery-pay{
-   padding: 16px 24px 24px 24px;
+   padding: 24px 24px 24px 24px;
+   gap: 8px;
 }
 
 .pay__container .main__title{
@@ -438,6 +515,12 @@ main .main__container .cart .cart__wrapper .cart__container{
    gap: 12px;
 }
 
+.pay__card .pay__card-date{
+   margin-left: 4px;
+   display: flex;
+   align-items: center;
+}
+
 .cart__delivery-pay .pay-info{
    display: none;
    font-size: 13px;
@@ -448,22 +531,28 @@ main .main__container .cart .cart__wrapper .cart__container{
 }
 
 .cart-form{
-   padding: 16px 24px 24px 24px;
+   padding: 20px 24px 24px 24px;
 }
 
 .cart-form .main__title{
    padding: 0;
+   margin-bottom: -8px;
 }
 
 .cart-form form{
    height: 128px;
    display: flex;
    flex-direction: column;
+   width: 83%;
 }
 
 .cart-form form .form__start, .cart-form form .form__end{
    display: flex;
    gap: 24px;
+}
+
+.cart-form form .form__end{
+   margin-top: -5px;
 }
 
 .cart-form form .form__start .form__input, .cart-form form .form__end .form__input{
@@ -482,8 +571,8 @@ main .main__container .cart .cart__wrapper .cart__container{
 .cart-form form .form__input .form__input-container input[type="text"]{
    width: 100%;
    font-size: 16px;
+   line-height: 24px;
    font-weight: 400;
-   padding: 4px 0;
 }
 
 .cart-form form .form__input.error .form__input-container input[type="text"]{
@@ -533,6 +622,12 @@ main .main__container .cart .cart__wrapper .cart__container{
    }
 }
 
+@media (max-width: 1024px) {
+   .cart-form form{
+      width: 100%;
+   }
+}
+
 @media (max-width: 920px) {
    .cart{
       flex-direction: column;
@@ -556,6 +651,8 @@ main .main__container .cart .cart__wrapper .cart__container{
 
    .cart__container .cart__item .cart__item-right{
       flex-direction: column;
+      align-self: auto;
+      flex-grow: 1;
    }
 
    .cart__container .cart__item .cart__item-info{
@@ -578,8 +675,12 @@ main .main__container .cart .cart__wrapper .cart__container{
    }
 
    .cart__container .cart__item .cart__item-right .cart__item-additive-action{
-      max-width: 296px;
+      flex-grow: 1;
       justify-content: space-between;
+   }
+
+   .cart__item-additive-action .cart__item-counter{
+      width: 80px;
    }
 
    .cart__item-price .price__current, .cart__item-price .price__previous .price__previous-number > p{
@@ -606,7 +707,7 @@ main .main__container .cart .cart__wrapper .cart__container{
 
    .cart__miss-block .cart-block .cart__item{
       flex-direction: column;
-      max-width: 300px;
+      /* max-width: 300px; */
    }
 
    .cart__miss-block .cart-block .cart__item .cart__item-right{
@@ -640,13 +741,6 @@ main .main__container .cart .cart__wrapper .cart__container{
       gap: 36px;
    }
 
-   .cart__delivery-container .cart__delivery-subtitle .subtitle__right{
-      position: absolute;
-      top: 20px;
-      left: 24px;
-      gap: 40px;
-   }
-
    .subtitle__left .delivery__date:last-child{
       margin-top: 20px;
    }
@@ -658,11 +752,19 @@ main .main__container .cart .cart__wrapper .cart__container{
    .cart__delivey-wrapper .cart__delivery-info{
       margin-top: 40px;
    }
+
+   .cart-flex{
+      gap: 0;
+   }
 }
 
 @media (max-width: 414px){
    main .main__container .cart .cart__wrapper .cart__container, main .main__container .cart .cart__wrapper .cart__miss-block{
       padding: 0 16px;
+   }
+
+   .cart{
+      gap: 0;
    }
 
    .cart__container .cart__item:not(:first-child){
@@ -674,6 +776,10 @@ main .main__container .cart .cart__wrapper .cart__container{
       top: 10px;
    }
 
+   .cart__miss-block .cart__item .info__name{
+      width: 100%;
+   }
+
    .cart__item-info .info__name{
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -681,6 +787,22 @@ main .main__container .cart .cart__wrapper .cart__container{
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 14px;
+   }
+
+   .cart__item-info .info__footer .info__company-name{
+      display: none;
+   }
+
+   .price__current .price__current-number{
+      font-size: 16px;
+   }
+
+   .cart__item-counter .counter__minus, .cart__item-counter .counter__plus{
+      padding: 0;
+   } 
+
+   .cart__item-additive-action .cart__item-counter .counter__count {
+      padding: 0;
    }
 
    .info__company-name-info .info__company-name-modal{
@@ -705,12 +827,22 @@ main .main__container .cart .cart__wrapper .cart__container{
       margin-top: 6px;
    }
 
-   .cart__delivey-wrapper .cart__delivery-info{
-      padding: 0 16px;
+   .cart__delivey-wrapper .cart__delivery-info {
+      margin-top: 24px;
    }
 
-   .cart__delivey-wrapper .cart__delivery-info div:last-child{
+   .cart__delivery-wrapper .cart__delivery-info div:last-child{
       font-size: 13px;
+   }
+
+   .subtitle > li{
+      flex-direction: column;
+      gap: 0;
+   }
+
+   .subtitle li:last-child ul li{
+      flex-direction: column;
+      gap: 12px;
    }
 }
 

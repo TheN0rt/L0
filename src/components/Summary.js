@@ -27,7 +27,7 @@ export class Summary{
       this.view.summaryProductCount.textContent = productCount
       this.view.summaryProductWord.textContent = morphWord(productCount, [' товар', ' товара', ' товаров'])
       this.view.summaryFullPrice.textContent = fullPrice.toLocaleString()
-      this.view.summaryDiscount.textContent = (totalPrice - fullPrice).toLocaleString() 
+      this.view.summaryDiscount.textContent = (totalPrice - fullPrice).toLocaleString().split('-').join('− ')
       this.view.summaryAddress.textContent = address.place
       this.view.summaryDeliveryDate.textContent = cartService.getDate().split('—').join('–')
       this.view.summaryCardImg.setAttribute('src', card.image)

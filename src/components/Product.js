@@ -19,6 +19,11 @@ export class Product{
       this.view.favorite.src = this.product.isInFavorite ? '/src/images/icons/favoriteActive.svg' : '/src/images/icons/favorite.svg'
       
       if(this.template.getAttribute('id') !== 'infoAboutMissingProduct'){
+         if((!this.product.size && !this.product.color)){
+            this.view.infoBlock.classList.remove('isActive')
+         } else{
+            this.view.infoBlock.classList.add('isActive')
+         }
          const userDiscount = userService.getDiscount()
          this.view.checkbox.checked = this.product.isChecked
          this.view.companyName.textContent = this.product.company.name
@@ -30,11 +35,17 @@ export class Product{
          this.view.productCount.textContent = this.product.count
    
          this.view.productCurrentPrice.textContent = getPriceWithDiscount(this.product.price, this.product.count, this.product.percentOfdiscount, userDiscount).toLocaleString()
-         this.view.productFullPice.textContent = getFullprice(this.product.price, this.product.count).toLocaleString()
+
+         if(getPriceWithDiscount(this.product.price, this.product.count, this.product.percentOfdiscount, userDiscount) > 1000000){
+            this.view.productCurrentPrice.classList.add('small')
+         } else{
+            this.view.productCurrentPrice.classList.remove('small')
+         }
+         this.view.productFullPice.textContent = getFullprice(this.product.price, this.product.count) > 10000 ? getFullprice(this.product.price, this.product.count).toLocaleString() : getFullprice(this.product.price, this.product.count)
          this.view.productDiscount.textContent = "Скидка " + this.product.percentOfdiscount + "%"
-         this.view.productDiscountCount.textContent = -getProductDiscount(this.product.price, this.product.percentOfdiscount) + " сом"
+         this.view.productDiscountCount.textContent = '−' + getProductDiscount(this.product.price, this.product.percentOfdiscount) + " сом"
          this.view.userDiscount.textContent = "Скидка покупателя " + userDiscount + "%"
-         this.view.userDiscountCount.textContent = -getUserDiscount(this.product.price, userDiscount) + " сом"
+         this.view.userDiscountCount.textContent = '−' + getUserDiscount(this.product.price, userDiscount) + " сом"
          this.product.count === stockCounter ? this.view.productIncrease.classList.add('gray') : this.view.productIncrease.classList.remove('gray')
          this.product.count === 1 ? this.view.productDecrease.classList.add('gray') : this.view.productDecrease.classList.remove('gray')
 
@@ -45,6 +56,5 @@ export class Product{
             this.view.productAttention.classList.remove('isActive')
          }
       }
-
    }
 }

@@ -1,12 +1,14 @@
 footer{
-   padding: 24px;
+   padding: 33px 24px;
    display: flex;
    align-items: center;
    justify-content: center;
 }
 
 footer > span{
+   margin-left: -3px;
    font-size: 13px;
+   line-height: 16px;
    font-weight: 400;
    text-align: center;
 }

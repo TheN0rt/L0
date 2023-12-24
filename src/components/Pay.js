@@ -13,9 +13,9 @@ export class Pay{
       const card = userService.getChosenCard()
       this.root.innerHTML = ''
       this.view.payCardImg.setAttribute('src', card.image)
-      this.view.payCardNumber = card.number
-      this.view.payCardMonth = card.date.month
-      this.view.payCardYear = card.date.year
+      this.view.payCardNumber.textContent = card.number
+      this.view.payCardMonth.textContent = card.date.month > 10 ? card.date.month : '0' + card.date.month
+      this.view.payCardYear.textContent = card.date.year
       cartService.isCheckboxChecked() ? this.view.payInfo.classList.remove('isVisible') : this.view.payInfo.classList.add('isVisible')
       this.attach() 
    }

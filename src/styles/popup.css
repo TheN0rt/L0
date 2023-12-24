@@ -29,7 +29,7 @@
    align-items: center;
    justify-content: space-between;
    font-size: 20px;
-   font-weight: 700;
+   font-family: 'Segoe UI Gras';
    padding: 16px 24px 13px 24px;
 }
 
@@ -100,6 +100,7 @@
    cursor: pointer;
    width: 224px;
    height: 36px;
+   font-family: 'Segoe UI Gras';
 }
 
 .popup__delivery-selection .popup__delivery-item:hover, .popup__delivery-selection .popup__delivery-item.active{
@@ -121,6 +122,7 @@
 
 .popup__subtitle .popup__delivery-choose > h4{
    font-size: 13px;
+   font-family: 'Segoe UI Gras';
 }
 
 .popup.active .popup__body .popup__subtitle.delivery__section{

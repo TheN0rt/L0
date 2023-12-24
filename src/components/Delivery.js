@@ -51,7 +51,7 @@ export class Delivery{
          const counter = document.createElement('div')
          counter.classList.add('notification')
          counter.classList.add('delivery__products-notification')
-         counter.classList.add('isActive')
+         product.count > 1 ? counter.classList.add('isActive') : ''
          
          const remainsObj = {}
          remainsObj.count = product.count > 184 ? product.count - 184 : 0
@@ -78,6 +78,7 @@ export class Delivery{
             const productElem = document.createElement('li')
             const dateBlock = document.createElement('p')
             const blockWithProducts = document.createElement('div')
+            blockWithProducts.classList.add('delivery__products')
             dateBlock.innerText = '7—8 февраля'
             productElem.appendChild(dateBlock)
             for(let product of remains){
