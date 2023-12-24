@@ -2,7 +2,7 @@ import { cartService } from "../services/cart.service.js"
 import { userService } from "../services/user.service.js"
 import { View } from "../utils/view.js"
 import { PopupCard } from "./PopupCard.js"
-import { PopupAddress } from "./PopupAddress.js"
+import { PopupAddress } from "/src/components/PopupAddress.js"
 
 export class PopupList{
    constructor(template, root){
