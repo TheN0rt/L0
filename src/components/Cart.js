@@ -142,6 +142,7 @@ export class Cart{
       document.querySelectorAll('.close__icon').forEach(el => el.addEventListener('click', () => {
          document.querySelector('.popup.active').classList.remove('active')
          document.querySelector('html').classList.remove('disabledOverflow')
+         cartService.setSelection('deliveryPointSelection')
          this.render()
       }))
 
@@ -156,12 +157,10 @@ export class Cart{
          document.querySelector('.popup.active').classList.remove('active')
          document.querySelector('html').classList.remove('disabledOverflow')
          const dataset = document.querySelector('.popup__delivery-item.active').getAttribute('data-set')
-         console.log(dataset)
          if(dataset === 'deliveryPointSelection'){
             userService.setChosenPoint(userService.getTempPointAddress())
             userService.setChosenAddress(userService.getChosenPoint())
          } else{
-            console.log(userService.getTempDeliveryAddress())
             userService.setChosenDelivery(userService.getTempDeliveryAddress())
             userService.setChosenAddress(userService.getChosenDelivery())
          }
@@ -242,35 +241,35 @@ export class Cart{
 
       document.querySelectorAll('.cart__container .favorite img').forEach((el, idx) => {
          el.addEventListener('mouseover', () => {
-            el.src = '/src/images/icons/favoriteActive.svg'
+            el.src = './src/images/icons/favoriteActive.svg'
          })
 
          el.addEventListener('mouseout', () => {
             if(!favoriteService.getFavorites().some(favorite => favorite.id === products[idx].id)){
-               el.src = '/src/images/icons/favorite.svg'
+               el.src = './src/images/icons/favorite.svg'
             }
          })
       })
 
       document.querySelectorAll('.cart__miss-block .favorite img').forEach((el, idx) => {
          el.addEventListener('mouseover', () => {
-            el.src = '/src/images/icons/favoriteActive.svg'
+            el.src = './src/images/icons/favoriteActive.svg'
          })
 
          el.addEventListener('mouseout', () => {
             if(!favoriteService.getFavorites().some(favorite => favorite.id === missingProducts[idx].id)){
-               el.src = '/src/images/icons/favorite.svg'
+               el.src = './src/images/icons/favorite.svg'
             }
          })
       })
 
       document.querySelectorAll('.delete img').forEach((el) => {
          el.addEventListener('mouseover', () => {
-            el.src = '/src/images/icons/deleteActive.svg'
+            el.src = './src/images/icons/deleteActive.svg'
          })
 
          el.addEventListener('mouseout', () => {
-            el.src = '/src/images/icons/delete.svg'
+            el.src = './src/images/icons/delete.svg'
          })
       })
       
