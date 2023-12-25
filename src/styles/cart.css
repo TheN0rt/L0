@@ -622,7 +622,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
    .cart-form form{
       width: 100%;
    }
