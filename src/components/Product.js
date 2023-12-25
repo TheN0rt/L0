@@ -16,7 +16,7 @@ export class Product{
       this.view.productImg.setAttribute('src', this.product.images[0].url)
       this.view.productSize.textContent = this.product.size ? "Размер: " + this.product.size.map(size => size) : ''
       this.view.productColor.textContent = this.product.color ? "Цвет: " + this.product.color.map(color => color) : ''
-      this.view.favorite.src = this.product.isInFavorite ? '/src/images/icons/favoriteActive.svg' : '/src/images/icons/favorite.svg'
+      this.view.favorite.src = this.product.isInFavorite ? './src/images/icons/favoriteActive.svg' : './src/images/icons/favorite.svg'
       
       if(this.template.getAttribute('id') !== 'infoAboutMissingProduct'){
          if((!this.product.size && !this.product.color)){

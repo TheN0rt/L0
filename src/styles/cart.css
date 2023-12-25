@@ -169,7 +169,7 @@ main .main__container .cart .cart__wrapper .cart__container{
    top: 20px;
    left: 50%;
    transform: translate(-50%, 0);
-   z-index: 9999;
+   z-index: 1;
 }
 
 .info__company-name-info:hover .info__company-name-modal{
